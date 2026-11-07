@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penutup, Setup Instalasi & Sertifikat — LINUX.EDU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            surface: '#111722',
+                            card: '#161E2D',
+                            border: '#212D40',
+                            green: '#00E676',
+                            greenLight: '#33EF8F',
+                            grayText: '#8B9B9E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body data-module-id="modul-5" class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-green selection:text-black min-h-screen flex flex-col justify-between">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="font-mono font-bold text-white tracking-widest text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-brand-green"></i>
+                        <span>LINUX<span class="text-brand-green">.EDU</span></span>
+                    </a>
+                    <div id="global-progress-indicator" class="hidden sm:block"></div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-1 text-xs font-medium">
+                    <a href="index.html" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">Beranda</a>
+                    <a href="apa-itu-linux.html" data-module-id="modul-1" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">1. Apa Itu Linux?</a>
+                    <a href="kelebihan-kekurangan.html" data-module-id="modul-2" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">2. Kelebihan & Kekurangan</a>
+                    <a href="distro-linux.html" data-module-id="modul-3" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">3. Distro Linux</a>
+                    <a href="perintah-dasar.html" data-module-id="modul-4" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">4. Perintah Dasar</a>
+                    <a href="penutup.html" data-module-id="modul-5" class="px-3 py-1.5 rounded-md bg-brand-green text-black font-bold">5. Penutup & Setup</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-lg"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-2 font-mono text-xs">
+            <a href="index.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">Beranda</a>
+            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">1. Apa Itu Linux?</a>
+            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">2. Kelebihan & Kekurangan</a>
+            <a href="distro-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">3. Distro Linux</a>
+            <a href="perintah-dasar.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">4. Perintah Dasar</a>
+            <a href="penutup.html" class="block px-3 py-2 rounded bg-brand-green text-black font-bold">5. Penutup & Setup</a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 pb-4 bg-brand-surface/70 border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+            <div class="flex items-center gap-2 text-gray-400">
+                <a href="index.html" class="hover:text-brand-green flex items-center gap-1"><i class="fa-solid fa-house"></i> Home</a>
+                <span>/</span>
+                <span class="text-brand-green font-bold">Modul 05: Penutup &amp; Langkah Implementasi Riil</span>
+            </div>
+            <div class="text-gray-400">
+                Status: <span class="text-brand-green font-bold">Kurikulum Dasar Lengkap</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full">
+        
+        <!-- HERO BADGE & COMPLETION BANNER -->
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-green/30 space-y-4 glow-card">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-green/10 text-brand-green border border-brand-green/30 font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-graduation-cap"></i> SELAMAT DATANG DI TAHAP AKHIR
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Selamat! Anda Telah Menguasai Fondasi Utama Linux 🎓
+            </h1>
+            <p class="text-brand-grayText text-sm sm:text-base leading-relaxed max-w-3xl">
+                Dari memahami pemisahan User Space dan Kernel Space, menimbang kelebihan keamanan POSIX, memetakan silsilah distro, hingga mengeksekusi 14+ perintah terminal dasar. Anda sekarang siap melangkah ke komputer fisik Anda.
+            </p>
+        </div>
+
+        <!-- REAL PROGRESS SUMMARY READING FROM LOCALSTORAGE -->
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-white">Ringkasan Progres Belajar Anda</h2>
+                    <p class="text-xs text-brand-grayText">Status modul yang telah Anda selesaikan di sesi peramban ini</p>
+                </div>
+                <button onclick="LinuxEduTracker.resetProgress()" class="text-xs font-mono text-gray-400 hover:text-red-400 transition flex items-center gap-1">
+                    <i class="fa-solid fa-rotate-left"></i> Ulangi Progres
+                </button>
+            </div>
+
+            <div id="completed-modules-summary" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Javascript will inject real live status here -->
+            </div>
+        </div>
+
+        <!-- REAL INTERACTIVE CERTIFICATE GENERATOR -->
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-green font-bold">
+                    <i class="fa-solid fa-award"></i> GENERATOR SERTIFIKAT DIGITAL ASLI
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Unduh Sertifikat Kelulusan Anda</h2>
+                <p class="text-xs sm:text-sm text-brand-grayText">
+                    Ketik nama lengkap Anda untuk mengenerate sertifikat kelulusan kurikulum dasar Linux. File diunduh dalam format vektor SVG beresolusi tinggi.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Left Input Controls -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="space-y-2">
+                        <label for="cert-student-name" class="block text-xs font-mono text-gray-300 font-bold">NAMA LENGKAP PENERIMA:</label>
+                        <input type="text" id="cert-student-name" onkeyup="updateCertificatePreview()" placeholder="Contoh: Budi Santoso" class="w-full px-4 py-3 rounded-xl bg-brand-surface border border-brand-border text-white text-sm focus:border-brand-green focus:outline-none font-sans">
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-2 text-xs font-mono text-gray-400">
+                        <div class="flex justify-between">
+                            <span>Program:</span>
+                            <span class="text-white">Linux Foundation &amp; POSIX CLI</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Status Verifikasi:</span>
+                            <span class="text-brand-green font-bold">VERIFIED COMPLETE</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Format Unduhan:</span>
+                            <span class="text-white">Scalable Vector Graphics (.SVG)</span>
+                        </div>
+                    </div>
+
+                    <button onclick="downloadCertificateSVG()" class="w-full py-3.5 rounded-xl bg-brand-green text-black font-bold text-sm hover:bg-brand-greenLight transition shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Unduh File Sertifikat (.SVG)
+                    </button>
+                </div>
+
+                <!-- Right Live Certificate Preview Canvas/Container -->
+                <div class="lg:col-span-7">
+                    <div class="p-6 rounded-2xl bg-[#0B0F17] border-2 border-brand-green/30 relative overflow-hidden font-mono text-center space-y-4 shadow-2xl">
+                        <div class="text-[10px] tracking-widest text-brand-green uppercase font-bold">LINUX.EDU — OPEN CURRICULUM</div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wide font-sans">SERTIFIKAT KELULUSAN</h3>
+                        <p class="text-[11px] text-brand-grayText font-sans">Diberikan sebagai pengakuan atas penyelesaian fondasi dasar Linux:</p>
+
+                        <div class="py-2 border-y border-brand-border/60">
+                            <div id="cert-display-name" class="text-2xl sm:text-3xl font-extrabold text-brand-green font-sans">
+                                Peserta Linux.Edu
+                            </div>
+                        </div>
+
+                        <p class="text-[10px] text-gray-400 font-sans max-w-md mx-auto">
+                            Telah memahami Arsitektur Kernel, Ekosistem GNU, Silsilah Distro, 14+ Perintah Esensial Shell POSIX, serta Prosedur Instalasi Sistem Operasi.
+                        </p>
+
+                        <div class="pt-2 flex justify-between items-center text-[10px] text-gray-500 border-t border-brand-border/40 px-4">
+                            <div>Tanggal: <span id="cert-display-date" class="text-gray-300"></span></div>
+                            <div class="flex items-center gap-1 text-brand-green"><i class="fa-solid fa-stamp"></i> OFFICIAL CURRICULUM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 METODE INSTALASI NYATA -->
+        <div class="space-y-6">
+            <div class="space-y-1">
+                <span class="text-brand-green font-mono text-xs font-semibold uppercase">LANGKAH PRAKTIK DI DUNIA NYATA</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">3 Jalur Instalasi Bebas Risiko ke Komputer Anda</h2>
+                <p class="text-xs sm:text-sm text-brand-grayText">Pilih skenario setup yang paling nyaman dengan spesifikasi hardware Anda saat ini:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Jalur 1 -->
+                <div class="p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-green font-bold">METODE 1 • PALING AMAN</span>
+                            <i class="fa-solid fa-laptop text-gray-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Virtual Machine (VirtualBox)</h3>
+                        <p class="text-xs text-brand-grayText leading-relaxed">
+                            Menjalankan Linux sebagai aplikasi di dalam Windows atau macOS tanpa menyentuh susunan partisi disk fisik Anda.
+                        </p>
+                        
+                        <div class="space-y-2.5 font-mono text-xs text-gray-300 pt-2">
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-brand-green flex items-center justify-center shrink-0 font-bold">1</span>
+                                <div>Unduh Oracle VirtualBox gratis dari situs resminya.</div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-brand-green flex items-center justify-center shrink-0 font-bold">2</span>
+                                <div>Unduh file ISO Ubuntu LTS atau Linux Mint (sekitar 3-4 GB).</div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-brand-green flex items-center justify-center shrink-0 font-bold">3</span>
+                                <div>Buat VM baru, beri alokasi 4GB RAM dan 25GB virtual disk.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-[#090D14] border border-brand-border text-xs text-brand-green font-mono">
+                        Kelebihan: Aman 100%, jika ada error tinggal hapus VM tanpa khawatir.
+                    </div>
+                </div>
+
+                <!-- Jalur 2 -->
+                <div class="p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-0.5 rounded bg-brand-surface border border-brand-border text-blue-400 font-bold">METODE 2 • TERBAIK WINDOWS</span>
+                            <i class="fa-solid fa-terminal text-gray-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">WSL 2 (Windows Subsystem)</h3>
+                        <p class="text-xs text-brand-grayText leading-relaxed">
+                            Kernel Linux asli yang terintegrasi langsung di Windows 10/11. Pilihan nomor satu bagi programmer web &amp; software developer.
+                        </p>
+                        
+                        <div class="space-y-2.5 font-mono text-xs text-gray-300 pt-2">
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-blue-400 flex items-center justify-center shrink-0 font-bold">1</span>
+                                <div>Buka PowerShell sebagai Administrator.</div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-blue-400 flex items-center justify-center shrink-0 font-bold">2</span>
+                                <div>Ketik perintah: <code class="text-brand-green bg-[#090D14] px-1.5 py-0.5 rounded">wsl --install</code></div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-blue-400 flex items-center justify-center shrink-0 font-bold">3</span>
+                                <div>Restart komputer dan nikmati terminal Linux asli di VS Code.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-[#090D14] border border-brand-border text-xs text-blue-400 font-mono">
+                        Kelebihan: Kecepatan native, akses file Windows dua arah tanpa lag.
+                    </div>
+                </div>
+
+                <!-- Jalur 3 -->
+                <div class="p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="px-2.5 py-0.5 rounded bg-brand-surface border border-brand-border text-amber-400 font-bold">METODE 3 • BARE METAL</span>
+                            <i class="fa-solid fa-hard-drive text-gray-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Dual Boot Fisik</h3>
+                        <p class="text-xs text-brand-grayText leading-relaxed">
+                            Memasang Linux berdampingan dengan Windows di drive fisik. Saat menyalakan PC, menu GRUB memungkinkan memilih masuk Windows atau Linux.
+                        </p>
+                        
+                        <div class="space-y-2.5 font-mono text-xs text-gray-300 pt-2">
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-amber-400 flex items-center justify-center shrink-0 font-bold">1</span>
+                                <div>Sisihkan 50GB unallocated space via Disk Management Windows.</div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-amber-400 flex items-center justify-center shrink-0 font-bold">2</span>
+                                <div>Flash ISO distro ke flashdisk menggunakan aplikasi Rufus.</div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-5 h-5 rounded-full bg-brand-surface text-amber-400 flex items-center justify-center shrink-0 font-bold">3</span>
+                                <div>Booting ke flashdisk dan pilih "Install alongside Windows".</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-[#090D14] border border-brand-border text-xs text-amber-400 font-mono">
+                        Perhatian: Lakukan backup file penting ke flashdisk sebelum partisi.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- KOMUNITAS & REFERENSI LANJUTAN -->
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4">
+            <h2 class="text-2xl font-bold text-white">Langkah Selanjutnya &amp; Komunitas Indonesia</h2>
+            <p class="text-xs sm:text-sm text-brand-grayText">Belajar Linux paling seru dilakukan bersama komunitas terbuka:</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono pt-2">
+                <a href="https://overthewire.org/wargames/bandit/" target="_blank" class="p-4 rounded-xl bg-brand-surface border border-brand-border hover:border-brand-green transition space-y-1 block group">
+                    <div class="text-brand-green font-bold flex items-center justify-between">
+                        <span>OverTheWire: Bandit</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-sans">Game interaktif CTF online untuk melatih terminal Linux dari level 0 hingga mahir.</p>
+                </a>
+
+                <a href="https://linuxjourney.com/" target="_blank" class="p-4 rounded-xl bg-brand-surface border border-brand-border hover:border-brand-green transition space-y-1 block group">
+                    <div class="text-brand-green font-bold flex items-center justify-between">
+                        <span>Linux Journey</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-sans">Dokumentasi gratis berbahasa sederhana seputar permissions, networking, dan process.</p>
+                </a>
+
+                <a href="https://distrowatch.com/" target="_blank" class="p-4 rounded-xl bg-brand-surface border border-brand-border hover:border-brand-green transition space-y-1 block group">
+                    <div class="text-brand-green font-bold flex items-center justify-between">
+                        <span>DistroWatch</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-sans">Pusat pemeringkatan dan berita rilis versi terbaru ratusan varian distro Linux dunia.</p>
+                </a>
+
+                <a href="https://telegram.org" target="_blank" class="p-4 rounded-xl bg-brand-surface border border-brand-border hover:border-brand-green transition space-y-1 block group">
+                    <div class="text-brand-green font-bold flex items-center justify-between">
+                        <span>Komunitas Telegram</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-sans">Grup diskusi pegiat Linux Indonesia: saling bantu troubleshooting dan tanya jawab.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAVIGATION BAR -->
+        <div class="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+            <a href="perintah-dasar.html" class="px-5 py-2.5 rounded bg-brand-card border border-brand-border text-gray-300 hover:text-white transition">
+                ← Kembali ke Modul 4: Perintah Dasar
+            </a>
+
+            <a href="index.html" class="px-6 py-3 rounded-lg bg-brand-green text-black font-bold hover:bg-brand-greenLight transition flex items-center gap-2 shadow-lg shadow-brand-green/20">
+                <span>Kembali ke Beranda (Ulas Materi)</span>
+                <i class="fa-solid fa-house text-xs"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#070A0F] border-t border-brand-border py-8 text-xs text-brand-grayText font-mono mt-12 text-center">
+        LINUX.EDU &copy; 2026. Kurikulum Terbuka &amp; Dokumentasi Bebas Sistem Operasi Linux.
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

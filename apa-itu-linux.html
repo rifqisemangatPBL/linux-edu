@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apa Itu Linux? — Fondasi & Arsitektur Sistem Operasi — LINUX.EDU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            surface: '#111722',
+                            card: '#161E2D',
+                            border: '#212D40',
+                            green: '#00E676',
+                            greenLight: '#33EF8F',
+                            grayText: '#8B9B9E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body data-module-id="modul-1" class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-green selection:text-black min-h-screen flex flex-col justify-between">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="font-mono font-bold text-white tracking-widest text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-brand-green"></i>
+                        <span>LINUX<span class="text-brand-green">.EDU</span></span>
+                    </a>
+                    <div id="global-progress-indicator" class="hidden sm:block"></div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-1 text-xs font-medium">
+                    <a href="index.html" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">Beranda</a>
+                    <a href="apa-itu-linux.html" data-module-id="modul-1" class="px-3 py-1.5 rounded-md bg-brand-green text-black font-bold">1. Apa Itu Linux?</a>
+                    <a href="kelebihan-kekurangan.html" data-module-id="modul-2" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">2. Kelebihan & Kekurangan</a>
+                    <a href="distro-linux.html" data-module-id="modul-3" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">3. Distro Linux</a>
+                    <a href="perintah-dasar.html" data-module-id="modul-4" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">4. Perintah Dasar</a>
+                    <a href="penutup.html" data-module-id="modul-5" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">5. Penutup & Setup</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-lg"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-2 font-mono text-xs">
+            <a href="index.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">Beranda</a>
+            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded bg-brand-green text-black font-bold">1. Apa Itu Linux?</a>
+            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">2. Kelebihan & Kekurangan</a>
+            <a href="distro-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">3. Distro Linux</a>
+            <a href="perintah-dasar.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">4. Perintah Dasar</a>
+            <a href="penutup.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">5. Penutup & Setup</a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB & CONTEXT -->
+    <div class="pt-20 pb-4 bg-brand-surface/70 border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+            <div class="flex items-center gap-2 text-gray-400">
+                <a href="index.html" class="hover:text-brand-green flex items-center gap-1"><i class="fa-solid fa-house"></i> Home</a>
+                <span>/</span>
+                <span class="text-brand-green font-bold">Modul 01: Apa Itu Linux?</span>
+            </div>
+            <div class="text-gray-400">
+                Topik: <span class="text-white">Kernel Monolitik, Proyek GNU, &amp; Arsitektur 4-Lapis</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full">
+        
+        <!-- HEADER OVERVIEW -->
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-surface border border-brand-green/30 text-brand-green font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-atom"></i> FONDASI SISTEM OPERASI
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Anatomi &amp; Cara Kerja Sebenarnya dari Linux
+            </h1>
+            <p class="text-brand-grayText text-sm sm:text-base leading-relaxed max-w-3xl">
+                Secara teknis, Linux bukanlah sistem operasi lengkap yang berdiri sendiri. Linux adalah sebuah <strong class="text-white">Kernel</strong> — komponen inti terpenting yang menjembatani perintah aplikasi dengan komponen fisik mesin komputer Anda.
+            </p>
+        </div>
+
+        <!-- 2 PILAR UTAMA: KERNEL VS GNU -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-6 sm:p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-green/10 border border-brand-green/30 flex items-center justify-center text-brand-green text-xl">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">1. Kernel Linux</h2>
+                    <span class="text-xs font-mono text-brand-green block">Diciptakan oleh Linus Torvalds (1991)</span>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                        Kernel bertanggung jawab langsung atas tugas-tugas tingkat rendah: mengalokasikan RAM ke proses, mengatur antrean eksekusi di CPU, berbicara dengan driver hard disk, serta menjaga keamanan batas hak akses memori agar satu program tidak dapat merusak program lain.
+                    </p>
+                </div>
+                <div class="p-3 rounded-lg bg-brand-surface border border-brand-border text-xs font-mono text-gray-300">
+                    <span class="text-brand-green font-bold">Fokus:</span> Performa, stabilitas, dan manajemen perangkat keras tanpa antarmuka langsung ke pengguna.
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl">
+                        <i class="fa-solid fa-terminal"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">2. Ekosistem GNU (Userland)</h2>
+                    <span class="text-xs font-mono text-blue-400 block">Digagas oleh Richard Stallman (1983)</span>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                        Kernel saja tidak bisa digunakan oleh manusia tanpa alat perantara. GNU menyediakan shell terminal (<code class="text-brand-green">bash</code>), compiler C (<code class="text-brand-green">gcc</code>), pustaka C (<code class="text-brand-green">glibc</code>), dan perintah utilitas harian seperti <code class="text-brand-green">ls, cp, rm, cat</code>.
+                    </p>
+                </div>
+                <div class="p-3 rounded-lg bg-brand-surface border border-brand-border text-xs font-mono text-gray-300">
+                    <span class="text-blue-400 font-bold">Gabungan Keduanya:</span> Menghasilkan apa yang kita kenal sebagai <strong class="text-white">GNU/Linux</strong>.
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE ARCHITECTURE EXPLORER -->
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-6">
+            <div class="space-y-2">
+                <span class="text-brand-green font-mono text-xs font-semibold uppercase tracking-wider">DIAGRAM INTERAKTIF 4-LAPIS</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">Bagaimana Setiap Lapisan Saling Berkomunikasi?</h2>
+                <p class="text-xs sm:text-sm text-brand-grayText">
+                    Klik pada salah satu lapisan di sebelah kiri untuk melihat peran spesifik, analogi kehidupan nyata, dan teknologi yang terlibat.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Stack Buttons (Layer 4 to 1) -->
+                <div class="lg:col-span-5 space-y-3 font-mono text-xs">
+                    
+                    <button id="arch-btn-user" onclick="selectArchLayer('user')" class="arch-btn w-full p-4 rounded-xl border border-brand-green bg-brand-green/10 text-white text-left transition flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-surface text-brand-green flex items-center justify-center font-bold text-xs border border-brand-border">4</span>
+                            <div>
+                                <div class="font-bold">Layer 4: User Space</div>
+                                <div class="text-[10px] text-gray-400 font-sans">Aplikasi, GUI Desktop, &amp; Shell CLI</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-brand-green"></i>
+                    </button>
+
+                    <button id="arch-btn-gnu" onclick="selectArchLayer('gnu')" class="arch-btn w-full p-4 rounded-xl border border-brand-border bg-brand-surface text-gray-300 text-left transition flex items-center justify-between hover:border-brand-green/60">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-dark text-gray-400 flex items-center justify-center font-bold text-xs border border-brand-border">3</span>
+                            <div>
+                                <div class="font-bold">Layer 3: GNU &amp; glibc</div>
+                                <div class="text-[10px] text-gray-400 font-sans">System Calls &amp; Pustaka Standar Runtime</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-500"></i>
+                    </button>
+
+                    <button id="arch-btn-kernel" onclick="selectArchLayer('kernel')" class="arch-btn w-full p-4 rounded-xl border border-brand-border bg-brand-surface text-gray-300 text-left transition flex items-center justify-between hover:border-brand-green/60">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-dark text-brand-green flex items-center justify-center font-bold text-xs border border-brand-border">2</span>
+                            <div>
+                                <div class="font-bold">Layer 2: Linux Kernel</div>
+                                <div class="text-[10px] text-gray-400 font-sans">Ring 0: Process, Memory, VFS, Drivers</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-500"></i>
+                    </button>
+
+                    <button id="arch-btn-hardware" onclick="selectArchLayer('hardware')" class="arch-btn w-full p-4 rounded-xl border border-brand-border bg-brand-surface text-gray-300 text-left transition flex items-center justify-between hover:border-brand-green/60">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-dark text-gray-400 flex items-center justify-center font-bold text-xs border border-brand-border">1</span>
+                            <div>
+                                <div class="font-bold">Layer 1: Hardware</div>
+                                <div class="text-[10px] text-gray-400 font-sans">CPU, RAM, SSD/NVMe, Network Card</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-500"></i>
+                    </button>
+
+                </div>
+
+                <!-- Right Detailed Inspector Card -->
+                <div class="lg:col-span-7 p-6 rounded-2xl bg-[#090D14] border border-brand-border space-y-4">
+                    <div class="space-y-1">
+                        <span id="arch-display-sub" class="text-xs font-mono text-brand-green">Tempat Anda dan aplikasi berinteraksi sehari-hari</span>
+                        <h3 id="arch-display-title" class="text-xl sm:text-2xl font-bold text-white">Layer 4: User Space (Aplikasi &amp; Desktop)</h3>
+                    </div>
+
+                    <p id="arch-display-desc" class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                        Merupakan lingkungan non-privilege di mana browser (Firefox), code editor (VS Code), shell (Bash), dan desktop environment (GNOME/KDE) berjalan. Jika sebuah aplikasi di layer ini crash, sistem operasi dan kernel tetap berjalan normal tanpa blue-screen.
+                    </p>
+
+                    <div id="arch-display-analogy" class="p-3.5 rounded-xl bg-brand-surface border border-brand-border text-xs text-gray-300 leading-relaxed font-sans">
+                        <span class="text-brand-green font-bold font-mono">Analogi Nyata:</span> Ibarat tamu di sebuah gedung yang hanya memiliki akses ke ruangan yang diizinkan tanpa bisa merombak instalasi listrik atau fondasi gedung.
+                    </div>
+
+                    <div class="space-y-2 pt-2">
+                        <div class="text-[11px] font-mono text-gray-400">KOMPONEN &amp; TEKNOLOGI TERKAIT:</div>
+                        <div id="arch-display-tech" class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-[11px] font-mono text-gray-300">Firefox</span>
+                            <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-[11px] font-mono text-gray-300">VS Code</span>
+                            <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-[11px] font-mono text-gray-300">Bash Shell</span>
+                            <span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-[11px] font-mono text-gray-300">GNOME / KDE Plasma</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MENGAPA PEMISAHAN INI PENTING? -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
+            <div class="p-6 rounded-xl bg-brand-card border border-brand-border space-y-2">
+                <div class="text-brand-green text-xl"><i class="fa-solid fa-shield-virus"></i></div>
+                <h4 class="font-bold text-white text-base">Isolasi Keamanan Ketat</h4>
+                <p class="text-xs text-brand-grayText leading-relaxed">
+                    Aplikasi pengguna tidak bisa sembarangan memodifikasi memori kernel atau file sistem tanpa otorisasi hak akses <code class="text-brand-green font-mono">root / sudo</code>.
+                </p>
+            </div>
+            <div class="p-6 rounded-xl bg-brand-card border border-brand-border space-y-2">
+                <div class="text-brand-green text-xl"><i class="fa-solid fa-bolt"></i></div>
+                <h4 class="font-bold text-white text-base">Kestabilan Tanpa Henti</h4>
+                <p class="text-xs text-brand-grayText leading-relaxed">
+                    Jika sebuah web server atau browser crash, proses tersebut bisa dimatikan seketika tanpa perlu merestart seluruh komputer atau server Anda.
+                </p>
+            </div>
+            <div class="p-6 rounded-xl bg-brand-card border border-brand-border space-y-2">
+                <div class="text-brand-green text-xl"><i class="fa-solid fa-puzzle-piece"></i></div>
+                <h4 class="font-bold text-white text-base">Modular &amp; Portabel</h4>
+                <p class="text-xs text-brand-grayText leading-relaxed">
+                    Kernel yang sama dapat berjalan di jam tangan pintar (smartwatch), laptop tipis, router jaringan, hingga superkomputer beribu inti prosesor.
+                </p>
+            </div>
+        </div>
+
+        <!-- NARRATIVE BRIDGE & NEXT NAVIGATION -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-brand-surface border border-brand-green/30 space-y-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-green font-bold">
+                    <i class="fa-solid fa-link"></i> HUBUNGAN KE MODUL BERIKUTNYA
+                </div>
+                <h3 class="text-xl font-bold text-white">Setelah Memahami Arsitekturnya, Apa Konsekuensinya?</h3>
+                <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-3xl">
+                    Arsitektur kernel yang ketat ini memberikan Linux keunggulan mutlak dalam hal efisiensi RAM dan keamanan siber. Namun, hal ini juga menghadirkan tantangan bagi pengguna baru: adaptasi perintah terminal dan dukungan software komersial tertentu. Mari kita telaah secara objektif di Modul 2.
+                </p>
+            </div>
+
+            <div class="pt-4 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+                <a href="index.html" class="px-4 py-2.5 rounded bg-brand-card border border-brand-border text-gray-300 hover:text-white transition">
+                    ← Kembali ke Beranda
+                </a>
+                <button onclick="LinuxEduTracker.completeAndNext('modul-1', 'kelebihan-kekurangan.html')" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-brand-green text-black font-bold hover:bg-brand-greenLight transition shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2">
+                    <span>Selesai Membaca &amp; Lanjut ke Modul 2</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#070A0F] border-t border-brand-border py-8 text-xs text-brand-grayText font-mono mt-12 text-center">
+        LINUX.EDU &copy; 2026. Modul 01: Arsitektur Kernel &amp; Sistem GNU.
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

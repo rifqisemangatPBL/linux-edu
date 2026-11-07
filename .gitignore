@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Vercel Deployment
+.vercel
+
+# Environment variables & secrets (Never commit secrets!)
+.env
+.env.local
+.env.*.local
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,93 @@
+/* Custom Styling & Enhancements for LINUX.EDU */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    --brand-dark: #0B0F17;
+    --brand-surface: #111722;
+    --brand-card: #161E2D;
+    --brand-border: #212D40;
+    --brand-green: #00E676;
+    --brand-green-light: #33EF8F;
+    --brand-gray: #8B9B9E;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0B0F17;
+}
+::-webkit-scrollbar-thumb {
+    background: #212D40;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00E676;
+}
+
+.glow-green {
+    box-shadow: 0 0 25px -5px rgba(0, 230, 118, 0.25);
+}
+
+.glow-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glow-green-subtle {
+    box-shadow: 0 0 15px -3px rgba(0, 230, 118, 0.15);
+}
+
+/* Custom terminal output scroll */
+.term-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #212D40 #090D14;
+}
+
+/* Blinking terminal cursor */
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: #00E676;
+    animation: blink 1s step-start infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Architecture layer active states */
+.arch-layer {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.arch-layer:hover {
+    transform: translateY(-2px);
+    border-color: #00E676;
+}
+.arch-layer.active {
+    border-color: #00E676;
+    background-color: rgba(0, 230, 118, 0.08);
+}
+
+/* Distro card hover & badge */
+.distro-card {
+    transition: all 0.25s ease;
+}
+.distro-card:hover {
+    transform: translateY(-4px);
+    border-color: #00E676;
+    box-shadow: 0 12px 30px -10px rgba(0, 230, 118, 0.2);
+}
+
+/* Table command row highlight */
+.cmd-row:hover {
+    background-color: rgba(33, 45, 64, 0.5);
+}
+
+/* Mission checklist animation */
+.mission-item.completed {
+    border-color: rgba(0, 230, 118, 0.4);
+    background-color: rgba(0, 230, 118, 0.05);
+}

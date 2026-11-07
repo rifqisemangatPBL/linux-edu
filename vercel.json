@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/apa-itu-linux", "destination": "/apa-itu-linux.html" },
+    { "source": "/kelebihan-kekurangan", "destination": "/kelebihan-kekurangan.html" },
+    { "source": "/distro-linux", "destination": "/distro-linux.html" },
+    { "source": "/perintah-dasar", "destination": "/perintah-dasar.html" },
+    { "source": "/penutup", "destination": "/penutup.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}

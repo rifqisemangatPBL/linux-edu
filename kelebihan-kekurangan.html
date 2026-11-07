@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelebihan & Tantangan Linux — Evaluasi Objektif — LINUX.EDU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            surface: '#111722',
+                            card: '#161E2D',
+                            border: '#212D40',
+                            green: '#00E676',
+                            greenLight: '#33EF8F',
+                            grayText: '#8B9B9E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body data-module-id="modul-2" class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-green selection:text-black min-h-screen flex flex-col justify-between">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="font-mono font-bold text-white tracking-widest text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-brand-green"></i>
+                        <span>LINUX<span class="text-brand-green">.EDU</span></span>
+                    </a>
+                    <div id="global-progress-indicator" class="hidden sm:block"></div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-1 text-xs font-medium">
+                    <a href="index.html" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">Beranda</a>
+                    <a href="apa-itu-linux.html" data-module-id="modul-1" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">1. Apa Itu Linux?</a>
+                    <a href="kelebihan-kekurangan.html" data-module-id="modul-2" class="px-3 py-1.5 rounded-md bg-brand-green text-black font-bold">2. Kelebihan & Kekurangan</a>
+                    <a href="distro-linux.html" data-module-id="modul-3" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">3. Distro Linux</a>
+                    <a href="perintah-dasar.html" data-module-id="modul-4" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">4. Perintah Dasar</a>
+                    <a href="penutup.html" data-module-id="modul-5" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">5. Penutup & Setup</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-lg"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-2 font-mono text-xs">
+            <a href="index.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">Beranda</a>
+            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">1. Apa Itu Linux?</a>
+            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded bg-brand-green text-black font-bold">2. Kelebihan & Kekurangan</a>
+            <a href="distro-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">3. Distro Linux</a>
+            <a href="perintah-dasar.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">4. Perintah Dasar</a>
+            <a href="penutup.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">5. Penutup & Setup</a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 pb-4 bg-brand-surface/70 border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+            <div class="flex items-center gap-2 text-gray-400">
+                <a href="index.html" class="hover:text-brand-green flex items-center gap-1"><i class="fa-solid fa-house"></i> Home</a>
+                <span>/</span>
+                <span class="text-brand-green font-bold">Modul 02: Kelebihan &amp; Tantangan Adaptasi</span>
+            </div>
+            <div class="text-gray-400">
+                Topik: <span class="text-white">Analisis Berimbang &amp; Solusi Nyata Migrasi</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full">
+        
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-surface border border-brand-green/30 text-brand-green font-mono text-xs font-bold uppercase">
+                <i class="fa-solid fa-scale-balanced"></i> EVALUASI PRAKTIS
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Menimbang Linux Secara Objektif &amp; Transparan
+            </h1>
+            <p class="text-brand-grayText text-sm sm:text-base leading-relaxed max-w-3xl">
+                Tidak ada sistem operasi yang sempurna untuk segala hal. Di modul ini, kita membedah alasan teknis di balik efisiensi Linux, sekaligus membahas tantangan nyata yang sering dialami pemula beserta solusinya.
+            </p>
+        </div>
+
+        <!-- 2 MAIN COMPARISON COLUMNS -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Kelebihan -->
+            <div class="p-6 sm:p-8 rounded-2xl bg-brand-card border border-brand-green/40 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center text-lg border border-brand-green/30">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">5 Keunggulan Terbesar Linux</h2>
+                        <span class="text-xs font-mono text-brand-green">Alasan utama dipilih oleh jutaan engineer</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-1.5">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-brand-green font-mono">01.</span> Open Source &amp; Tanpa Biaya Lisensi
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Bebas digunakan, dimodifikasi, dan didistribusikan tanpa watermark, masa trial kadaluarsa, atau paksaan update di tengah pekerjaan mendesak.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-1.5">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-brand-green font-mono">02.</span> Penggunaan RAM Sangat Ringan
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Sistem Linux dengan desktop ringan (XFCE) hanya memakan 400MB-800MB RAM saat idle (bandingkan dengan Windows 11 yang membutuhkan 3.5GB - 4.5GB). Laptop lama pun terasa seperti baru.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-1.5">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-brand-green font-mono">03.</span> Keamanan Arsitektur POSIX
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Eksekusi file berbahaya terisolasi secara default. Tidak ada file `.exe` yang bisa otomatis berjalan tanpa izin eksekusi (`chmod +x`) dan kata sandi otentikasi admin (`sudo`).
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-1.5">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-brand-green font-mono">04.</span> Manajemen Software Terpusat (Package Manager)
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Mengunduh ribuan aplikasi resmi langsung lewat repositori aman tanpa perlu mencari file `.exe` liar di Google yang rawan disisipi adware/malware.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-1.5">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-brand-green font-mono">05.</span> Fondasi Karir Cloud &amp; Software Engineering
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Docker, Kubernetes, AWS, Google Cloud, CI/CD pipelines, dan Git dirancang natively untuk berjalan optimal di atas kernel Linux.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tantangan & Solusi Nyata -->
+            <div class="p-6 sm:p-8 rounded-2xl bg-brand-card border border-amber-500/30 space-y-6">
+                <div class="flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg border border-amber-500/30">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </span>
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">Tantangan Nyata &amp; Solusinya</h2>
+                        <span class="text-xs font-mono text-amber-400">Bukan mitos, ini fakta &amp; jalan keluarnya</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-2">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-amber-400 font-mono">A.</span> Kurva Belajar Command Line (CLI)
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Bagi yang terbiasa klik antarmuka grafis di Windows, terminal awalnya terlihat menakutkan.
+                        </p>
+                        <div class="p-2.5 rounded bg-[#090D14] border border-brand-border text-xs text-brand-green font-mono">
+                            <strong>Solusi:</strong> Distro modern seperti Linux Mint sudah 95% full GUI. Selain itu, Anda bisa melatih perintah wajib secara santai di Sandbox Modul 4.
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-2">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-amber-400 font-mono">B.</span> Ketiadaan Adobe Creative Cloud &amp; MS Office Asli
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Adobe dan Microsoft tidak merilis Photoshop atau Word khusus format Linux native.
+                        </p>
+                        <div class="p-2.5 rounded bg-[#090D14] border border-brand-border text-xs text-brand-green font-mono">
+                            <strong>Solusi:</strong> Gunakan alternatif mumpuni: LibreOffice, Office Web 365, Figma (Web/Native), DaVinci Resolve (video editing profesional), atau GIMP &amp; Krita.
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brand-surface border border-brand-border space-y-2">
+                        <h3 class="font-bold text-white flex items-center gap-2">
+                            <span class="text-amber-400 font-mono">C.</span> Game Tertentu dengan Anti-Cheat Ring 0
+                        </h3>
+                        <p class="text-brand-grayText leading-relaxed">
+                            Game kompetitif seperti Valorant yang menggunakan kernel driver anti-cheat tingkat Windows tidak bisa berjalan di Linux.
+                        </p>
+                        <div class="p-2.5 rounded bg-[#090D14] border border-brand-border text-xs text-brand-green font-mono">
+                            <strong>Solusi:</strong> Melalui Valve Proton (Steam), 85%+ game di Steam kini playable out-of-the-box (termasuk Cyberpunk, Elden Ring, Dota 2, CS2).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- INTERACTIVE MINI CHECKLIST: KESIAPAN MIGRASI -->
+        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-6">
+            <div class="space-y-1">
+                <span class="text-brand-green font-mono text-xs font-semibold uppercase">EVALUASI DIRI MANDIRI</span>
+                <h3 class="text-2xl font-bold text-white">Apakah Linux Tepat untuk Komputer Anda?</h3>
+                <p class="text-xs sm:text-sm text-brand-grayText">Centang kebutuhan komputasi harian Anda di bawah ini:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                <label class="p-4 rounded-xl bg-brand-surface border border-brand-border flex items-start gap-3 cursor-pointer hover:border-brand-green transition">
+                    <input type="checkbox" checked class="mt-0.5 accent-[#00E676] w-4 h-4 rounded">
+                    <div>
+                        <div class="text-white font-bold">Programming, Web Dev &amp; Data Science</div>
+                        <div class="text-[11px] text-gray-400 font-sans mt-0.5">Sangat Direkomendasikan: Python, Node.js, C/C++, Docker, Git terasa jauh lebih cepat &amp; natural di Linux.</div>
+                    </div>
+                </label>
+
+                <label class="p-4 rounded-xl bg-brand-surface border border-brand-border flex items-start gap-3 cursor-pointer hover:border-brand-green transition">
+                    <input type="checkbox" checked class="mt-0.5 accent-[#00E676] w-4 h-4 rounded">
+                    <div>
+                        <div class="text-white font-bold">Menghidupkan Kembali Laptop Tua</div>
+                        <div class="text-[11px] text-gray-400 font-sans mt-0.5">Sangat Cocok: Menghilangkan lemot Windows di laptop dengan RAM 4GB atau hard disk HDD lawas.</div>
+                    </div>
+                </label>
+
+                <label class="p-4 rounded-xl bg-brand-surface border border-brand-border flex items-start gap-3 cursor-pointer hover:border-brand-green transition">
+                    <input type="checkbox" checked class="mt-0.5 accent-[#00E676] w-4 h-4 rounded">
+                    <div>
+                        <div class="text-white font-bold">Browsing, Belajar &amp; Menonton Film</div>
+                        <div class="text-[11px] text-gray-400 font-sans mt-0.5">Sangat Nyaman: Chrome, Firefox, VLC, Spotify berjalan sempurna tanpa gangguan pop-up iklan OS.</div>
+                    </div>
+                </label>
+
+                <label class="p-4 rounded-xl bg-brand-surface border border-brand-border flex items-start gap-3 cursor-pointer hover:border-brand-green transition">
+                    <input type="checkbox" class="mt-0.5 accent-[#00E676] w-4 h-4 rounded">
+                    <div>
+                        <div class="text-white font-bold">Wajib Menggunakan Software Khusus Windows</div>
+                        <div class="text-[11px] text-gray-400 font-sans mt-0.5">Saran Praktis: Jangan langsung format total. Gunakan Dual-Boot atau WSL 2 (dibahas di Modul 5).</div>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- NARRATIVE BRIDGE & NEXT NAVIGATION -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-brand-surface border border-brand-green/30 space-y-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-green font-bold">
+                    <i class="fa-solid fa-link"></i> HUBUNGAN KE MODUL BERIKUTNYA
+                </div>
+                <h3 class="text-xl font-bold text-white">Langkah Selanjutnya: Menemukan Varian Distro yang Tepat</h3>
+                <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-3xl">
+                    Karena Linux bersifat open-source, ratusan tim dan komunitas telah mengemas kernel Linux dengan software pendukung yang berbeda-beda — paket inilah yang disebut <strong class="text-white">Distribusi Linux (Distro)</strong>. Ada yang dirancang khusus untuk pemula, ada yang ditujukan untuk kestabilan server, dan ada pula yang khusus untuk keamanan siber. Mari kita jelajahi katalognya di Modul 3.
+                </p>
+            </div>
+
+            <div class="pt-4 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+                <a href="apa-itu-linux.html" class="px-4 py-2.5 rounded bg-brand-card border border-brand-border text-gray-300 hover:text-white transition">
+                    ← Modul Sebelumnya: Apa Itu Linux?
+                </a>
+                <button onclick="LinuxEduTracker.completeAndNext('modul-2', 'distro-linux.html')" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-brand-green text-black font-bold hover:bg-brand-greenLight transition shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2">
+                    <span>Selesai Membaca &amp; Lanjut ke Modul 3</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#070A0F] border-t border-brand-border py-8 text-xs text-brand-grayText font-mono mt-12 text-center">
+        LINUX.EDU &copy; 2026. Modul 02: Kelebihan, Kelemahan &amp; Solusi Praktis.
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

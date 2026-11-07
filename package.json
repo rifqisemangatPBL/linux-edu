@@ -1,0 +1,19 @@
+{
+  "name": "linux-edu",
+  "version": "1.0.0",
+  "description": "Platform Belajar Fondasi Sistem Operasi Linux & POSIX CLI",
+  "scripts": {
+    "dev": "npx serve .",
+    "deploy": "npx vercel --prod",
+    "deploy:preview": "npx vercel"
+  },
+  "keywords": [
+    "linux",
+    "education",
+    "terminal",
+    "posix",
+    "operating-systems"
+  ],
+  "author": "LINUX.EDU",
+  "license": "GPL-3.0"
+}
