@@ -1,0 +1,15 @@
+# Strict Anti-AI-Slop Rules
+
+## 1. Visual & Layout Constraints
+- DO NOT use generic dark mode gradients like `#09090b` with glowing neon purple/cyan accents.
+- DO NOT use boring, symmetrical hero sections with two side-by-side identical buttons.
+- Use asymmetrical layouts (like Bento Grid or 60/40 splits) and ample whitespace (`py-20` to `py-32`).
+- Avoid heavy glassmorphism (`backdrop-blur`) and generic rounded cards with thin borders.
+
+## 2. Typography & Colors
+- Colors: Use a curated palette (e.g., warm monochrome, high-contrast earth tones, or crisp modern light/dark contrast).
+- Typography: Use distinct heading fonts (e.g., Serif or bold sans-serif with proper letter spacing), not standard unstyled default fonts.
+
+## 3. Micro-details & Copy
+- No generic AI copy like "Empower your workflow" or "Unlock your potential".
+- Ensure clean CSS structure and smooth hover transitions.

@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perintah Dasar Terminal & Sandbox Interaktif — LINUX.EDU</title>
+    <title>Perintah Dasar & Terminal Sandbox — LINUX.EDU</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
@@ -13,17 +16,23 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0B0F17',
-                            surface: '#111722',
-                            card: '#161E2D',
-                            border: '#212D40',
-                            green: '#00E676',
-                            greenLight: '#33EF8F',
-                            grayText: '#8B9B9E'
+                            dark: '#F6F3EC',
+                            surface: '#EDE6DA',
+                            card: '#FFFFFF',
+                            cardAlt: '#F4EFE6',
+                            border: '#DDD3C1',
+                            amber: '#B85D19',
+                            amberLight: '#D47530',
+                            green: '#3E6548',
+                            greenLight: '#527F5D',
+                            ink: '#2B231D',
+                            grayText: '#63574B',
+                            muted: '#88796B'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace']
                     }
                 }
@@ -31,352 +40,355 @@
         }
     </script>
 </head>
-<body data-module-id="modul-4" class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-green selection:text-black min-h-screen flex flex-col justify-between">
+<body data-module-id="modul-4" class="bg-brand-dark text-brand-ink font-sans antialiased selection:bg-brand-amber selection:text-white min-h-screen flex flex-col justify-between">
 
     <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#F6F3EC] border-b border-brand-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-4">
-                    <a href="index.html" class="font-mono font-bold text-white tracking-widest text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-terminal text-brand-green"></i>
-                        <span>LINUX<span class="text-brand-green">.EDU</span></span>
-                    </a>
-                    <div id="global-progress-indicator" class="hidden sm:block"></div>
-                </div>
+                <a href="index.html" class="flex items-center gap-2.5 font-mono text-base font-bold tracking-wider text-brand-ink group">
+                    <span class="w-8 h-8 rounded-sm bg-brand-surface border border-brand-border flex items-center justify-center text-brand-amber group-hover:border-brand-amber transition-colors duration-200">
+                        <i class="fa-solid fa-terminal text-xs"></i>
+                    </span>
+                    <span>LINUX<span class="text-brand-amber">.EDU</span></span>
+                </a>
 
-                <nav class="hidden md:flex items-center space-x-1 text-xs font-medium">
-                    <a href="index.html" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">Beranda</a>
-                    <a href="apa-itu-linux.html" data-module-id="modul-1" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">1. Apa Itu Linux?</a>
-                    <a href="kelebihan-kekurangan.html" data-module-id="modul-2" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">2. Kelebihan & Kekurangan</a>
-                    <a href="distro-linux.html" data-module-id="modul-3" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">3. Distro Linux</a>
-                    <a href="perintah-dasar.html" data-module-id="modul-4" class="px-3 py-1.5 rounded-md bg-brand-green text-black font-bold">4. Perintah Dasar</a>
-                    <a href="penutup.html" data-module-id="modul-5" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">5. Penutup & Setup</a>
+                <nav class="hidden md:flex items-center space-x-1 font-mono text-xs">
+                    <a href="index.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Beranda</a>
+                    <a href="apa-itu-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Apa Itu Linux</a>
+                    <a href="kelebihan-kekurangan.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Kelebihan &amp; Kekurangan</a>
+                    <a href="distro-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Distro Linux</a>
+                    <a href="perintah-dasar.html" class="px-3.5 py-1.5 rounded-sm bg-brand-amber text-white font-bold transition-colors duration-200">Perintah Dasar</a>
+                    <a href="penutup.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Penutup</a>
                 </nav>
 
-                <div class="flex items-center gap-3">
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-lg"></i></button>
+                <div class="flex items-center gap-2">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-grayText hover:text-brand-ink">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-2 font-mono text-xs">
-            <a href="index.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">Beranda</a>
-            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">1. Apa Itu Linux?</a>
-            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">2. Kelebihan & Kekurangan</a>
-            <a href="distro-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">3. Distro Linux</a>
-            <a href="perintah-dasar.html" class="block px-3 py-2 rounded bg-brand-green text-black font-bold">4. Perintah Dasar</a>
-            <a href="penutup.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">5. Penutup & Setup</a>
+        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-1 font-mono text-xs">
+            <a href="index.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Beranda</a>
+            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Apa Itu Linux</a>
+            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Kelebihan &amp; Kekurangan</a>
+            <a href="distro-linux.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Distro Linux</a>
+            <a href="perintah-dasar.html" class="block px-3 py-2 rounded-sm bg-brand-amber text-white font-bold">Perintah Dasar</a>
+            <a href="penutup.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Penutup</a>
         </div>
     </header>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 pb-4 bg-brand-surface/70 border-b border-brand-border">
+    <div class="pt-20 pb-4 bg-brand-surface border-b border-brand-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
-            <div class="flex items-center gap-2 text-gray-400">
-                <a href="index.html" class="hover:text-brand-green flex items-center gap-1"><i class="fa-solid fa-house"></i> Home</a>
+            <div class="flex items-center gap-2 text-brand-grayText">
+                <a href="index.html" class="hover:text-brand-amber flex items-center gap-1 transition-colors"><i class="fa-solid fa-house"></i> Home</a>
                 <span>/</span>
-                <span class="text-brand-green font-bold">Modul 04: Perintah Dasar Terminal (CLI)</span>
+                <span class="text-brand-amber font-bold">Modul 04: Perintah Dasar Shell &amp; Filesystem</span>
             </div>
-            <div class="text-gray-400">
-                Lingkungan: <span class="text-brand-green font-bold">Virtual Bash POSIX Shell (Aman Tanpa Risiko)</span>
+            <div class="text-brand-muted">
+                Status: <span class="text-brand-amber font-bold">Sandbox Virtual Aktif</span>
             </div>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
-    <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full">
+    <main class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 w-full">
         
-        <div class="p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-surface border border-brand-green/30 text-brand-green font-mono text-xs font-bold uppercase">
-                <i class="fa-solid fa-terminal"></i> HANDS-ON TERMINAL PLAYGROUND
+        <!-- ASYMMETRICAL HEADER OVERVIEW (8/4 Split) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end border-b border-brand-border pb-12">
+            <div class="lg:col-span-8 space-y-4">
+                <div class="inline-flex items-center gap-2 border-l-2 border-brand-amber pl-3 text-brand-amber font-mono text-xs font-bold uppercase tracking-wider">
+                    <span>PRAKTIK LANGSUNG</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold font-serif text-brand-ink tracking-tight leading-tight">
+                    Laboratorium Terminal Virtual &amp; Perintah Esensial
+                </h1>
             </div>
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-                Latihan Praktis Terminal &amp; Navigasi Sistem
-            </h1>
-            <p class="text-brand-grayText text-sm sm:text-base leading-relaxed max-w-3xl">
-                Terminal bukan untuk ditakuti, melainkan alat paling bertenaga dan efisien di tangan seorang profesional. Jalankan perintah di bawah ini secara interaktif di browser Anda.
+            <p class="lg:col-span-4 text-brand-grayText text-sm leading-relaxed">
+                Simulator Bash interaktif dengan virtual filesystem terisolasi di memori peramban. Eksekusi perintah navigasi dan manipulasi berkas secara langsung.
             </p>
         </div>
 
         <!-- 5 GUIDED MISSIONS BAR -->
-        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="p-8 bg-brand-card border border-brand-border space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brand-border pb-4">
                 <div>
-                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-flag-checkered text-brand-green"></i> 5 Misi Latihan Terpandu
+                    <h2 class="text-xl font-bold font-serif text-brand-ink flex items-center gap-2">
+                        <i class="fa-solid fa-flag-checkered text-brand-amber text-base"></i> 5 Misi Latihan Terpandu
                     </h2>
-                    <p class="text-xs text-brand-grayText">Ketik perintah yang diminta di kotak terminal di bawah untuk menyelesaikan misi</p>
+                    <p class="text-xs text-brand-grayText mt-0.5">Eksekusi sintaks berikut pada terminal di bawah untuk memvalidasi pemahaman</p>
                 </div>
                 <div class="flex items-center gap-3 font-mono text-xs">
-                    <span id="mission-progress-text" class="text-brand-green font-bold">0/5 Misi Selesai</span>
-                    <div class="w-28 bg-brand-surface rounded-full h-2 overflow-hidden border border-brand-border">
-                        <div id="mission-progress-bar" class="bg-brand-green h-full transition-all duration-300" style="width: 0%"></div>
+                    <span id="mission-progress-text" class="text-brand-amber font-bold">0/5 Misi Selesai</span>
+                    <div class="w-28 bg-brand-surface h-2 overflow-hidden border border-brand-border">
+                        <div id="mission-progress-bar" class="bg-brand-amber h-full transition-all duration-300" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 font-mono text-xs pt-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 font-mono text-xs">
                 
-                <div id="mission-card-pwd" class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1.5 transition">
+                <div id="mission-card-pwd" class="p-4 bg-brand-surface border border-brand-border space-y-1.5 transition-colors duration-200">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400 font-bold">MISI 1</span>
-                        <span id="mission-check-pwd" class="text-gray-500 text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
+                        <span class="text-brand-muted font-bold">MISI 01</span>
+                        <span id="mission-check-pwd" class="text-brand-muted text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
                     </div>
-                    <div class="text-white font-bold">Cek Lokasi</div>
-                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-green">pwd</code> di terminal</div>
+                    <div class="text-brand-ink font-bold">Cek Lokasi</div>
+                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-amber font-bold">pwd</code> di terminal</div>
                 </div>
 
-                <div id="mission-card-ls" class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1.5 transition">
+                <div id="mission-card-ls" class="p-4 bg-brand-surface border border-brand-border space-y-1.5 transition-colors duration-200">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400 font-bold">MISI 2</span>
-                        <span id="mission-check-ls" class="text-gray-500 text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
+                        <span class="text-brand-muted font-bold">MISI 02</span>
+                        <span id="mission-check-ls" class="text-brand-muted text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
                     </div>
-                    <div class="text-white font-bold">Lihat Berkas</div>
-                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-green">ls</code> atau <code class="text-brand-green">ls -la</code></div>
+                    <div class="text-brand-ink font-bold">Lihat Berkas</div>
+                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-amber font-bold">ls</code> atau <code class="text-brand-amber font-bold">ls -la</code></div>
                 </div>
 
-                <div id="mission-card-mkdir" class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1.5 transition">
+                <div id="mission-card-mkdir" class="p-4 bg-brand-surface border border-brand-border space-y-1.5 transition-colors duration-200">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400 font-bold">MISI 3</span>
-                        <span id="mission-check-mkdir" class="text-gray-500 text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
+                        <span class="text-brand-muted font-bold">MISI 03</span>
+                        <span id="mission-check-mkdir" class="text-brand-muted text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
                     </div>
-                    <div class="text-white font-bold">Buat Folder</div>
-                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-green">mkdir belajar_linux</code></div>
+                    <div class="text-brand-ink font-bold">Buat Folder</div>
+                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-amber font-bold">mkdir belajar_linux</code></div>
                 </div>
 
-                <div id="mission-card-cd" class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1.5 transition">
+                <div id="mission-card-cd" class="p-4 bg-brand-surface border border-brand-border space-y-1.5 transition-colors duration-200">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400 font-bold">MISI 4</span>
-                        <span id="mission-check-cd" class="text-gray-500 text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
+                        <span class="text-brand-muted font-bold">MISI 04</span>
+                        <span id="mission-check-cd" class="text-brand-muted text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
                     </div>
-                    <div class="text-white font-bold">Masuk Folder</div>
-                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-green">cd belajar_linux</code></div>
+                    <div class="text-brand-ink font-bold">Masuk Folder</div>
+                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-amber font-bold">cd belajar_linux</code></div>
                 </div>
 
-                <div id="mission-card-touch" class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1.5 transition">
+                <div id="mission-card-touch" class="p-4 bg-brand-surface border border-brand-border space-y-1.5 transition-colors duration-200">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-400 font-bold">MISI 5</span>
-                        <span id="mission-check-touch" class="text-gray-500 text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
+                        <span class="text-brand-muted font-bold">MISI 05</span>
+                        <span id="mission-check-touch" class="text-brand-muted text-[11px]"><i class="fa-regular fa-circle"></i> Pending</span>
                     </div>
-                    <div class="text-white font-bold">Buat File</div>
-                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-green">touch catatan.txt</code></div>
+                    <div class="text-brand-ink font-bold">Buat File</div>
+                    <div class="text-[10px] text-brand-grayText font-sans">Ketik <code class="text-brand-amber font-bold">touch catatan.txt</code></div>
                 </div>
 
             </div>
         </div>
 
         <!-- CLI SANDBOX TERMINAL WINDOW -->
-        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden glow-card font-mono text-xs">
-            <!-- Window Titlebar -->
-            <div class="bg-[#0D131F] px-4 py-3 border-b border-brand-border flex items-center justify-between text-gray-400">
+        <div class="rounded-sm bg-[#29231E] border border-[#42372F] font-mono text-xs">
+            <div class="bg-[#1F1A16] px-4 py-3 border-b border-[#382F27] flex items-center justify-between text-[#88796B]">
                 <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-                    <span class="pl-2 text-gray-300 font-bold flex items-center gap-2">
-                        <i class="fa-solid fa-terminal text-brand-green"></i> bash v5.2 — linuxedu-sandbox
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#B43E38] inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#C68420] inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#3E6548] inline-block"></span>
+                    <span class="pl-2 text-[#DDD3C1] font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-[#E5A842]"></i> bash v5.2 — linuxedu-sandbox
                     </span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="runCmd('help')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green text-[11px] border border-brand-border transition">
+                    <button onclick="runCmd('help')" class="px-2.5 py-1 bg-[#29231E] hover:text-[#E5A842] text-[11px] text-[#DDD3C1] border border-[#42372F] transition-colors duration-200">
                         Bantuan ('help')
                     </button>
-                    <button onclick="clearTerm()" class="px-2.5 py-1 rounded bg-brand-surface hover:text-red-400 text-[11px] border border-brand-border transition">
+                    <button onclick="clearTerm()" class="px-2.5 py-1 bg-[#29231E] hover:text-[#B43E38] text-[11px] text-[#DDD3C1] border border-[#42372F] transition-colors duration-200">
                         Bersihkan ('clear')
                     </button>
                 </div>
             </div>
 
-            <!-- Terminal Output Area -->
-            <div class="p-6 bg-[#090D14] space-y-3">
-                <div id="term-output" class="min-h-[220px] max-h-[360px] overflow-y-auto space-y-1.5 text-gray-300 term-scroll leading-relaxed">
-                    <div class="text-brand-grayText text-[11px] mb-2 font-mono">
-                        Terminal Linux.Edu siap digunakan. Ketik <span class="text-brand-green font-bold">help</span> untuk melihat semua perintah atau selesaikan 5 Misi di atas!
+            <div class="p-6 bg-[#14100D] space-y-3">
+                <div id="term-output" class="min-h-[240px] max-h-[380px] overflow-y-auto space-y-1.5 text-[#DDD3C1] term-scroll leading-relaxed">
+                    <div class="text-[#88796B] text-[11px] mb-2 font-mono">
+                        Sesi shell siap. Ketik <span class="text-[#E5A842] font-bold">help</span> untuk daftar perintah atau selesaikan 5 misi di atas.
                     </div>
-                    <div><span class="text-brand-green font-bold">user@linuxedu:~$</span></div>
+                    <div><span class="text-[#E5A842] font-bold">user@linuxedu:~$</span></div>
                 </div>
 
-                <!-- Input Form -->
-                <form onsubmit="handleCLI(event)" class="flex items-center gap-2 border-t border-brand-border/60 pt-4">
-                    <span id="term-prompt-prefix" class="text-brand-green font-bold shrink-0">user@linuxedu:~$</span>
-                    <input type="text" id="cli-input" autofocus autocomplete="off" placeholder="Ketik perintah di sini (misal: ls, pwd, neofetch)..." class="w-full bg-transparent border-none text-white focus:outline-none font-mono text-xs placeholder-gray-600">
-                    <button type="submit" class="px-4 py-1.5 bg-brand-green text-black font-bold text-xs rounded hover:bg-brand-greenLight transition shadow-md shadow-brand-green/20">
+                <form onsubmit="handleCLI(event)" class="flex items-center gap-2 border-t border-[#382F27] pt-4">
+                    <span id="term-prompt-prefix" class="text-[#E5A842] font-bold shrink-0">user@linuxedu:~$</span>
+                    <input type="text" id="cli-input" autofocus autocomplete="off" placeholder="Ketik perintah (misal: ls, pwd, neofetch)..." class="w-full bg-transparent border-none text-[#EDE4D8] focus:outline-none font-mono text-xs placeholder-[#6E5D4F]">
+                    <button type="submit" class="px-4 py-1.5 bg-brand-amber text-white font-bold text-xs rounded-sm hover:bg-brand-amberLight transition-colors duration-200">
                         ENTER
                     </button>
                 </form>
             </div>
         </div>
 
-        <!-- STRUKTUR HIERARKI FILESYSTEM (KONEKSI KE MODUL 1) -->
-        <div class="p-6 sm:p-8 rounded-2xl bg-brand-card border border-brand-border space-y-4">
-            <div class="space-y-1">
-                <span class="text-brand-green font-mono text-xs font-semibold uppercase">FILESYSTEM HIERARCHY STANDARD (FHS)</span>
-                <h3 class="text-xl sm:text-2xl font-bold text-white">Di Mana File Anda Disimpan di Linux?</h3>
-                <p class="text-xs sm:text-sm text-brand-grayText">
-                    Berbeda dengan Windows yang menggunakan drive C: dan D:, seluruh sistem file Linux berakar pada satu garis miring tunggal: <code class="text-brand-green font-mono font-bold">/</code> (Root).
+        <!-- STRUKTUR HIERARKI FILESYSTEM -->
+        <div class="p-8 bg-brand-card border border-brand-border space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end border-b border-brand-border pb-4">
+                <div class="lg:col-span-7 space-y-1">
+                    <span class="text-brand-amber font-mono text-xs font-semibold uppercase tracking-wider">FILESYSTEM HIERARCHY STANDARD (FHS)</span>
+                    <h3 class="text-2xl font-bold font-serif text-brand-ink">Struktur Direktori Tunggal Linux</h3>
+                </div>
+                <p class="lg:col-span-5 text-xs sm:text-sm text-brand-grayText">
+                    Seluruh partisi dan perangkat penyimpanan dipetakan di bawah satu akar direktori tunggal: <code class="text-brand-amber font-mono font-bold">/</code> (Root).
                 </p>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs pt-2">
-                <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                    <span class="text-brand-green font-bold">/</span>
-                    <div class="text-[10px] text-gray-400 font-sans">Akar utama dari semua folder dan drive.</div>
+                <div class="p-4 bg-brand-surface border-t-2 border-t-brand-amber border-x border-b border-brand-border space-y-1.5">
+                    <span class="text-brand-amber font-bold text-sm">/</span>
+                    <div class="text-[11px] text-brand-grayText font-sans">Akar utama seluruh hierarki sistem file.</div>
                 </div>
-                <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                    <span class="text-brand-green font-bold">/home/user</span>
-                    <div class="text-[10px] text-gray-400 font-sans">Folder pribadi Anda (Dokumen, Download, Proyek).</div>
+                <div class="p-4 bg-brand-surface border border-brand-border space-y-1.5">
+                    <span class="text-brand-ink font-bold">/home/user</span>
+                    <div class="text-[11px] text-brand-grayText font-sans">Direktori kerja dan berkas pribadi pengguna.</div>
                 </div>
-                <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                    <span class="text-brand-green font-bold">/etc</span>
-                    <div class="text-[10px] text-gray-400 font-sans">File konfigurasi sistem &amp; aplikasi.</div>
+                <div class="p-4 bg-brand-surface border border-brand-border space-y-1.5">
+                    <span class="text-brand-ink font-bold">/etc</span>
+                    <div class="text-[11px] text-brand-grayText font-sans">Berkas konfigurasi sistem dan layanan daemon.</div>
                 </div>
-                <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                    <span class="text-brand-green font-bold">/bin</span>
-                    <div class="text-[10px] text-gray-400 font-sans">Program executable dasar (ls, cp, bash).</div>
+                <div class="p-4 bg-brand-surface border border-brand-border space-y-1.5">
+                    <span class="text-brand-ink font-bold">/bin</span>
+                    <div class="text-[11px] text-brand-grayText font-sans">Program biner esensial (ls, cp, bash).</div>
                 </div>
-                <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                    <span class="text-brand-green font-bold">/var/log</span>
-                    <div class="text-[10px] text-gray-400 font-sans">Catatan log aktivitas &amp; error sistem.</div>
+                <div class="p-4 bg-brand-surface border border-brand-border space-y-1.5">
+                    <span class="text-brand-ink font-bold">/var/log</span>
+                    <div class="text-[11px] text-brand-grayText font-sans">Catatan log aktivitas kernel dan aplikasi.</div>
                 </div>
-                <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                    <span class="text-brand-green font-bold">/dev</span>
-                    <div class="text-[10px] text-gray-400 font-sans">Perangkat hardware fisik yang direpresentasikan sebagai file.</div>
+                <div class="p-4 bg-brand-surface border border-brand-border space-y-1.5">
+                    <span class="text-brand-ink font-bold">/dev</span>
+                    <div class="text-[11px] text-brand-grayText font-sans">Representasi perangkat keras sebagai file.</div>
                 </div>
             </div>
         </div>
 
         <!-- TABEL REFERENSI PERINTAH DASAR LENGKAP -->
-        <div class="space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Tabel 14 Perintah Wajib Harian</h2>
-                    <p class="text-xs text-brand-grayText">Klik "Coba di Sandbox" untuk langsung mengeksekusinya di terminal atas</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-serif text-brand-ink">Referensi Perintah Wajib Harian</h2>
+                    <p class="text-xs text-brand-grayText mt-1">Gunakan tombol "Coba" untuk mengeksekusi perintah langsung ke dalam sandbox</p>
                 </div>
                 <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-500 text-xs"></i>
-                    <input type="text" id="cmd-filter" onkeyup="filterTable()" placeholder="Cari perintah (misal: cat, rm)..." class="pl-8 pr-3 py-1.5 rounded-lg bg-brand-card border border-brand-border text-xs text-white font-mono focus:border-brand-green focus:outline-none w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-brand-muted text-xs"></i>
+                    <input type="text" id="cmd-filter" onkeyup="filterTable()" placeholder="Saring perintah (misal: cat, rm)..." class="pl-8 pr-3 py-1.5 rounded-sm bg-brand-surface border border-brand-border text-xs text-brand-ink font-mono focus:border-brand-amber focus:outline-none w-64">
                 </div>
             </div>
 
-            <div class="overflow-x-auto rounded-2xl border border-brand-border bg-brand-card">
+            <div class="overflow-x-auto border border-brand-border bg-brand-card">
                 <table class="w-full text-left font-mono text-xs border-collapse">
                     <thead>
-                        <tr class="bg-[#0D131F] text-gray-400 border-b border-brand-border">
-                            <th class="p-3.5">PERINTAH</th>
-                            <th class="p-3.5">FUNGSI &amp; KEGUNAAN</th>
-                            <th class="p-3.5">CONTOH SINTAKS</th>
-                            <th class="p-3.5 text-right">AKSI CEPAT</th>
+                        <tr class="bg-brand-surface text-brand-grayText border-b border-brand-border">
+                            <th class="p-4">PERINTAH</th>
+                            <th class="p-4">FUNGSI &amp; KEGUNAAN</th>
+                            <th class="p-4">CONTOH SINTAKS</th>
+                            <th class="p-4 text-right">AKSI CEPAT</th>
                         </tr>
                     </thead>
-                    <tbody id="table-body" class="divide-y divide-brand-border/60 text-gray-300">
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">pwd</td>
-                            <td class="p-3.5 font-sans">Print Working Directory: Mengetahui folder aktif saat ini.</td>
-                            <td class="p-3.5 text-brand-green">pwd</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('pwd')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('pwd')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                    <tbody id="table-body" class="divide-y divide-brand-border text-brand-ink">
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">pwd</td>
+                            <td class="p-4 font-sans text-brand-grayText">Print Working Directory: Menampilkan jalur direktori aktif saat ini.</td>
+                            <td class="p-4 text-brand-ink">pwd</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('pwd')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('pwd')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">ls</td>
-                            <td class="p-3.5 font-sans">List: Menampilkan daftar isi file dan folder di direktori.</td>
-                            <td class="p-3.5 text-brand-green">ls -la</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('ls -la')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('ls -la')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">ls</td>
+                            <td class="p-4 font-sans text-brand-grayText">List: Menampilkan daftar berkas, folder, serta atribut izin aksesnya.</td>
+                            <td class="p-4 text-brand-ink">ls -la</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('ls -la')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('ls -la')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">cd</td>
-                            <td class="p-3.5 font-sans">Change Directory: Berpindah folder (misal: cd .. atau cd ~).</td>
-                            <td class="p-3.5 text-brand-green">cd proyek</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('cd proyek')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('cd proyek')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">cd</td>
+                            <td class="p-4 font-sans text-brand-grayText">Change Directory: Berpindah antar-direktori (<code class="text-brand-amber">cd ..</code> atau <code class="text-brand-amber">cd ~</code>).</td>
+                            <td class="p-4 text-brand-ink">cd proyek</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('cd proyek')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('cd proyek')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">mkdir</td>
-                            <td class="p-3.5 font-sans">Make Directory: Membuat satu atau lebih folder baru.</td>
-                            <td class="p-3.5 text-brand-green">mkdir folder_baru</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('mkdir folder_baru')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('mkdir folder_baru')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">mkdir</td>
+                            <td class="p-4 font-sans text-brand-grayText">Make Directory: Membuat direktori baru di lokasi aktif.</td>
+                            <td class="p-4 text-brand-ink">mkdir folder_baru</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('mkdir folder_baru')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('mkdir folder_baru')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">touch</td>
-                            <td class="p-3.5 font-sans">Membuat file teks baru yang masih kosong.</td>
-                            <td class="p-3.5 text-brand-green">touch catatan.txt</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('touch catatan.txt')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('touch catatan.txt')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">touch</td>
+                            <td class="p-4 font-sans text-brand-grayText">Membuat berkas kosong baru atau memperbarui stempel waktu berkas.</td>
+                            <td class="p-4 text-brand-ink">touch catatan.txt</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('touch catatan.txt')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('touch catatan.txt')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">cat</td>
-                            <td class="p-3.5 font-sans">Concatenate: Membaca dan menampilkan isi file ke layar.</td>
-                            <td class="p-3.5 text-brand-green">cat readme.md</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('cat readme.md')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('cat readme.md')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">cat</td>
+                            <td class="p-4 font-sans text-brand-grayText">Concatenate: Membaca dan mencetak isi berkas teks ke stdout terminal.</td>
+                            <td class="p-4 text-brand-ink">cat readme.md</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('cat readme.md')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('cat readme.md')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">rm</td>
-                            <td class="p-3.5 font-sans">Remove: Menghapus file permanen (gunakan -r untuk folder).</td>
-                            <td class="p-3.5 text-brand-green">rm catatan.txt</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('rm catatan.txt')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('rm catatan.txt')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">rm</td>
+                            <td class="p-4 font-sans text-brand-grayText">Remove: Menghapus berkas secara permanen (tambahkan <code class="text-brand-amber">-r</code> untuk folder).</td>
+                            <td class="p-4 text-brand-ink">rm catatan.txt</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('rm catatan.txt')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('rm catatan.txt')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">whoami</td>
-                            <td class="p-3.5 font-sans">Mengetahui identitas nama user yang sedang login.</td>
-                            <td class="p-3.5 text-brand-green">whoami</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('whoami')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('whoami')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">whoami</td>
+                            <td class="p-4 font-sans text-brand-grayText">Mencetak nama akun pengguna efektif yang sedang menjalankan sesi.</td>
+                            <td class="p-4 text-brand-ink">whoami</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('whoami')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('whoami')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">uname -a</td>
-                            <td class="p-3.5 font-sans">Menampilkan versi kernel Linux dan arsitektur CPU.</td>
-                            <td class="p-3.5 text-brand-green">uname -a</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('uname -a')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('uname -a')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">uname -a</td>
+                            <td class="p-4 font-sans text-brand-grayText">Menampilkan informasi versi kernel, hostname, dan arsitektur prosesor.</td>
+                            <td class="p-4 text-brand-ink">uname -a</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('uname -a')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('uname -a')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">df -h</td>
-                            <td class="p-3.5 font-sans">Disk Free: Memeriksa sisa ruang penyimpanan partisi hard disk.</td>
-                            <td class="p-3.5 text-brand-green">df -h</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('df -h')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('df -h')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">df -h</td>
+                            <td class="p-4 font-sans text-brand-grayText">Disk Free: Memeriksa alokasi kapasitas partisi penyimpanan dalam format terbaca.</td>
+                            <td class="p-4 text-brand-ink">df -h</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('df -h')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('df -h')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
 
-                        <tr class="cmd-row transition">
-                            <td class="p-3.5 font-bold text-brand-green">neofetch</td>
-                            <td class="p-3.5 font-sans">Menampilkan ringkasan spesifikasi sistem dengan maskot Tux.</td>
-                            <td class="p-3.5 text-brand-green">neofetch</td>
-                            <td class="p-3.5 text-right space-x-1">
-                                <button onclick="runCmd('neofetch')" class="px-2.5 py-1 rounded bg-brand-surface hover:text-brand-green border border-brand-border">Coba</button>
-                                <button onclick="copyCmd('neofetch')" class="px-2 py-1 rounded bg-brand-surface hover:text-white border border-brand-border text-gray-400"><i class="fa-regular fa-copy"></i></button>
+                        <tr class="cmd-row hover:bg-brand-surface/50 transition-colors duration-150">
+                            <td class="p-4 font-bold text-brand-amber">neofetch</td>
+                            <td class="p-4 font-sans text-brand-grayText">Mencetak ringkasan spesifikasi sistem operasi beserta logo ASCII distribusi.</td>
+                            <td class="p-4 text-brand-ink">neofetch</td>
+                            <td class="p-4 text-right space-x-1">
+                                <button onclick="runCmd('neofetch')" class="px-2.5 py-1 bg-brand-surface hover:bg-brand-amber hover:text-white border border-brand-border text-brand-ink transition-colors duration-200">Coba</button>
+                                <button onclick="copyCmd('neofetch')" class="px-2 py-1 bg-brand-surface hover:text-brand-ink border border-brand-border text-brand-muted transition-colors duration-200"><i class="fa-regular fa-copy"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -385,33 +397,34 @@
         </div>
 
         <!-- NARRATIVE BRIDGE & NEXT NAVIGATION -->
-        <div class="p-6 sm:p-8 rounded-2xl bg-brand-surface border border-brand-green/30 space-y-6">
-            <div class="space-y-2">
-                <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-green font-bold">
-                    <i class="fa-solid fa-link"></i> HUBUNGAN KE MODUL BERIKUTNYA
+        <div class="p-8 bg-brand-surface border border-brand-border space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-8 space-y-2">
+                    <div class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-amber font-bold uppercase">
+                        <i class="fa-solid fa-link"></i> Transisi ke Modul 05
+                    </div>
+                    <h3 class="text-2xl font-bold font-serif text-brand-ink">Implementasi pada Perangkat Keras Fisik</h3>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                        Setelah menguasai navigasi shell di lingkungan virtual, langkah berikutnya adalah memasang Linux secara aman pada komputer Anda melalui VirtualBox, WSL 2, atau partisi Dual Boot di Modul 05.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold text-white">Dari Browser Menuju Komputer Fisik Anda</h3>
-                <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-3xl">
-                    Anda sudah menguasai teori dan sintaks dasar di browser. Pertanyaan besarnya: bagaimana cara memasang sistem operasi Linux ini secara nyata di komputer Anda tanpa menghapus Windows atau kehilangan data pribadi? Di Modul 5, kita bahas 3 metode setup aman dan unduh sertifikat kelulusan Anda.
-                </p>
-            </div>
-
-            <div class="pt-4 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
-                <a href="distro-linux.html" class="px-4 py-2.5 rounded bg-brand-card border border-brand-border text-gray-300 hover:text-white transition">
-                    ← Modul Sebelumnya: Distro Linux
-                </a>
-                <button onclick="LinuxEduTracker.completeAndNext('modul-4', 'penutup.html')" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-brand-green text-black font-bold hover:bg-brand-greenLight transition shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2">
-                    <span>Selesai Latihan &amp; Lanjut ke Modul Penutup</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
+                <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 font-mono text-xs">
+                    <button onclick="LinuxEduTracker.completeAndNext('modul-4', 'penutup.html')" class="w-full px-6 py-3.5 rounded-sm bg-brand-amber text-white font-bold hover:bg-brand-ink transition-colors duration-200 flex items-center justify-center gap-2">
+                        <span>Lanjut ke Modul Penutup</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <a href="distro-linux.html" class="w-full px-4 py-2.5 rounded-sm bg-brand-card border border-brand-border text-brand-grayText hover:text-brand-ink transition-colors duration-200 text-center">
+                        ← Modul 03: Distro Linux
+                    </a>
+                </div>
             </div>
         </div>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#070A0F] border-t border-brand-border py-8 text-xs text-brand-grayText font-mono mt-12 text-center">
-        LINUX.EDU &copy; 2026. Modul 04: Perintah Dasar Shell &amp; Filesystem POSIX.
+    <footer class="bg-brand-surface border-t border-brand-border py-10 text-xs text-brand-grayText font-mono mt-16 text-center">
+        LINUX.EDU &copy; 2026 — Modul 04: Perintah Dasar Shell &amp; Filesystem POSIX.
     </footer>
 
     <script src="js/main.js"></script>

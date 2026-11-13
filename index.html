@@ -6,6 +6,9 @@
     <title>LINUX.EDU — Kuasai Fondasi Sistem Operasi Linux</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
@@ -13,17 +16,23 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0B0F17',
-                            surface: '#111722',
-                            card: '#161E2D',
-                            border: '#212D40',
-                            green: '#00E676',
-                            greenLight: '#33EF8F',
-                            grayText: '#8B9B9E'
+                            dark: '#F6F3EC',
+                            surface: '#EDE6DA',
+                            card: '#FFFFFF',
+                            cardAlt: '#F4EFE6',
+                            border: '#DDD3C1',
+                            amber: '#B85D19',
+                            amberLight: '#D47530',
+                            green: '#3E6548',
+                            greenLight: '#527F5D',
+                            ink: '#2B231D',
+                            grayText: '#63574B',
+                            muted: '#88796B'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace']
                     }
                 }
@@ -31,125 +40,118 @@
         }
     </script>
 </head>
-<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-green selection:text-black min-h-screen flex flex-col justify-between">
+<body class="bg-brand-dark text-brand-ink font-sans antialiased selection:bg-brand-amber selection:text-white min-h-screen flex flex-col justify-between">
 
     <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#F6F3EC] border-b border-brand-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <!-- Brand Logo & Live Progress -->
-                <div class="flex items-center gap-4">
-                    <a href="index.html" class="font-mono font-bold text-white tracking-widest text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-terminal text-brand-green"></i>
-                        <span>LINUX<span class="text-brand-green">.EDU</span></span>
-                    </a>
-                    <div id="global-progress-indicator" class="hidden sm:block"></div>
-                </div>
+                <a href="index.html" class="flex items-center gap-2.5 font-mono text-base font-bold tracking-wider text-brand-ink group">
+                    <span class="w-8 h-8 rounded-sm bg-brand-surface border border-brand-border flex items-center justify-center text-brand-amber group-hover:border-brand-amber transition-colors duration-200">
+                        <i class="fa-solid fa-terminal text-xs"></i>
+                    </span>
+                    <span>LINUX<span class="text-brand-amber">.EDU</span></span>
+                </a>
 
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center space-x-1 text-xs font-medium">
-                    <a href="index.html" class="px-3 py-1.5 rounded-md bg-brand-green text-black font-bold">Beranda</a>
-                    <a href="apa-itu-linux.html" data-module-id="modul-1" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">1. Apa Itu Linux?</a>
-                    <a href="kelebihan-kekurangan.html" data-module-id="modul-2" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">2. Kelebihan & Kekurangan</a>
-                    <a href="distro-linux.html" data-module-id="modul-3" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">3. Distro Linux</a>
-                    <a href="perintah-dasar.html" data-module-id="modul-4" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">4. Perintah Dasar</a>
-                    <a href="penutup.html" data-module-id="modul-5" class="px-3 py-1.5 rounded-md text-gray-300 hover:text-brand-green hover:bg-brand-surface transition">5. Penutup & Setup</a>
+                <nav class="hidden md:flex items-center space-x-1 font-mono text-xs">
+                    <a href="index.html" class="px-3.5 py-1.5 rounded-sm bg-brand-amber text-white font-bold transition-colors duration-200">Beranda</a>
+                    <a href="apa-itu-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Apa Itu Linux</a>
+                    <a href="kelebihan-kekurangan.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Kelebihan &amp; Kekurangan</a>
+                    <a href="distro-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Distro Linux</a>
+                    <a href="perintah-dasar.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Perintah Dasar</a>
+                    <a href="penutup.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Penutup</a>
                 </nav>
 
-                <!-- Actions -->
-                <div class="flex items-center gap-3">
-                    <button onclick="LinuxEduTracker.resetProgress()" title="Ulangi dari awal" class="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-brand-surface border border-brand-border text-[11px] font-mono text-gray-400 hover:text-red-400 hover:border-red-500/40 transition">
-                        <i class="fa-solid fa-rotate-left"></i> Reset
-                    </button>
-                    <a href="apa-itu-linux.html" class="px-3.5 py-1.5 rounded-md bg-brand-green text-black font-bold text-xs hover:bg-brand-greenLight transition flex items-center gap-1.5 shadow-md shadow-brand-green/20">
-                        <span>Mulai Belajar</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                <div class="flex items-center gap-2">
+                    <a href="apa-itu-linux.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-sm bg-brand-ink text-brand-dark font-mono font-bold text-xs hover:bg-brand-amber transition-colors duration-200">
+                        <span>Modul 01</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-bars text-lg"></i></button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-grayText hover:text-brand-ink">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Drawer -->
-        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-2 font-mono text-xs">
-            <a href="index.html" class="block px-3 py-2 rounded bg-brand-green text-black font-bold">Beranda</a>
-            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">1. Apa Itu Linux?</a>
-            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">2. Kelebihan & Kekurangan</a>
-            <a href="distro-linux.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">3. Distro Linux</a>
-            <a href="perintah-dasar.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">4. Perintah Dasar</a>
-            <a href="penutup.html" class="block px-3 py-2 rounded text-gray-300 hover:bg-brand-card">5. Penutup & Setup</a>
+        <div id="mobile-drawer" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-4 py-3 space-y-1 font-mono text-xs">
+            <a href="index.html" class="block px-3 py-2 rounded-sm bg-brand-amber text-white font-bold">Beranda</a>
+            <a href="apa-itu-linux.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Apa Itu Linux</a>
+            <a href="kelebihan-kekurangan.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Kelebihan &amp; Kekurangan</a>
+            <a href="distro-linux.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Distro Linux</a>
+            <a href="perintah-dasar.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Perintah Dasar</a>
+            <a href="penutup.html" class="block px-3 py-2 rounded-sm text-brand-grayText hover:bg-brand-card">Penutup</a>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="pt-28 pb-16 md:pt-36 md:pb-20 px-4 max-w-7xl mx-auto w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <!-- HERO SECTION (60/40 Asymmetrical Split) -->
+    <section class="pt-32 pb-24 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             
-            <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-surface border border-brand-border text-brand-green text-xs font-mono">
-                    <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-                    <span>Kurikulum Terbuka &amp; Hands-On Terminal Sandbox</span>
+            <div class="lg:col-span-7 space-y-7">
+                <div class="inline-flex items-center gap-2.5 border-l-2 border-brand-amber pl-3 text-brand-amber text-xs font-mono tracking-wider uppercase font-semibold">
+                    <span>Kurikulum Terbuka &amp; Terminal Sandbox</span>
                 </div>
                 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                    Pahami Cara Kerja <br/>
-                    <span class="text-brand-green">Sistem Operasi Linux</span> <br/>
-                    Secara Terstruktur.
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-brand-ink tracking-tight leading-[1.1]">
+                    Bedah Arsitektur <br/>
+                    <span class="text-brand-amber">Sistem Operasi Linux</span> <br/>
+                    Dari Kernel ke Shell.
                 </h1>
 
                 <p class="text-brand-grayText text-sm sm:text-base max-w-xl leading-relaxed">
-                    Bukan sekadar hafalan sintaks. Pelajari arsitektur kernel, ekosistem distro, keamanan hak akses POSIX, hingga praktik langsung di terminal virtual tanpa perlu instalasi apapun.
+                    Pelajari mekanisme kernel monolitik, ekosistem GNU, hierarki berkas POSIX, hingga eksekusi perintah Bash langsung melalui peramban tanpa instalasi mesin virtual.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                    <a href="apa-itu-linux.html" class="px-6 py-3.5 rounded-lg bg-brand-green text-black font-bold hover:bg-brand-greenLight transition flex items-center justify-center gap-2 text-sm shadow-lg shadow-brand-green/20">
-                        <span>Mulai Modul 1: Apa Itu Linux?</span>
+                <!-- Asymmetrical Action Row: Primary Block + Editorial Text Link -->
+                <div class="flex flex-col sm:flex-row sm:items-center gap-5 pt-2">
+                    <a href="apa-itu-linux.html" class="px-6 py-3.5 rounded-sm bg-brand-amber text-white font-mono font-bold hover:bg-brand-ink transition-colors duration-200 inline-flex items-center justify-center gap-3 text-xs tracking-wide uppercase">
+                        <span>Mulai Modul 01: Anatomi Kernel</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
-                    <a href="perintah-dasar.html" class="px-6 py-3.5 rounded-lg bg-brand-surface border border-brand-border text-gray-200 font-mono text-sm hover:border-brand-green hover:text-brand-green transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-terminal text-xs"></i>
-                        <span>Langsung Coba Sandbox CLI</span>
+                    <a href="perintah-dasar.html" class="inline-flex items-center gap-2 text-brand-ink font-mono text-xs font-semibold hover:text-brand-amber transition-colors duration-200 group py-2">
+                        <i class="fa-solid fa-terminal text-brand-amber"></i>
+                        <span class="border-b border-brand-ink group-hover:border-brand-amber pb-0.5">Buka Sandbox CLI Langsung</span>
                     </a>
                 </div>
 
-                <!-- Real Facts Pill (No AI fluff) -->
-                <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
-                    <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                        <span class="text-gray-400 block text-[10px]">INFRASTRUKTUR CLOUD</span>
-                        <span class="text-white font-bold text-sm">96.3% Server Global</span>
+                <!-- Architectural Facts Strip -->
+                <div class="pt-8 border-t border-brand-border grid grid-cols-3 gap-6 text-xs font-mono">
+                    <div>
+                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1">CLOUD INFRASTRUCTURE</span>
+                        <span class="text-brand-ink font-bold text-base font-serif">96.3% Server</span>
                     </div>
-                    <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1">
-                        <span class="text-gray-400 block text-[10px]">SUPERKOMPUTER</span>
-                        <span class="text-white font-bold text-sm">100% Top 500 Dunia</span>
+                    <div>
+                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1">TOP 500 SUPERCOMPUTER</span>
+                        <span class="text-brand-ink font-bold text-base font-serif">100% Linux</span>
                     </div>
-                    <div class="p-3 rounded-xl bg-brand-surface border border-brand-border space-y-1 col-span-2 sm:col-span-1">
-                        <span class="text-gray-400 block text-[10px]">PERANGKAT MOBILE</span>
-                        <span class="text-white font-bold text-sm">3+ Miliar Android</span>
+                    <div>
+                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1">KERNEL BASELINE</span>
+                        <span class="text-brand-ink font-bold text-base font-serif">POSIX / GNU</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Terminal Neofetch Banner (Authentic Tux Mascot) -->
-            <div class="lg:col-span-5 w-full">
-                <div class="rounded-2xl bg-brand-surface border border-brand-border overflow-hidden glow-card font-mono text-xs">
-                    <div class="bg-[#0D131F] px-4 py-3 border-b border-brand-border flex items-center justify-between text-gray-400">
+            <!-- Terminal Neofetch Banner -->
+            <div class="lg:col-span-5 w-full lg:mt-4">
+                <div class="rounded-sm bg-[#29231E] border border-[#42372F] font-mono text-xs">
+                    <div class="bg-[#1F1A16] px-4 py-3 border-b border-[#382F27] flex items-center justify-between text-[#88796B]">
                         <div class="flex items-center space-x-2">
-                            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-                            <span class="text-[11px] text-gray-400 font-mono pl-2">terminal@linux-edu:~</span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#B43E38] inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#C68420] inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#3E6548] inline-block"></span>
+                            <span class="text-[11px] text-[#DDD3C1] font-mono pl-2">terminal@linux-edu:~</span>
                         </div>
-                        <span class="text-[10px] text-brand-green bg-brand-green/10 px-2 py-0.5 rounded border border-brand-green/20">LIVE ENV</span>
+                        <span class="text-[10px] text-[#E5A842] font-mono">POSIX SHELL</span>
                     </div>
 
-                    <div class="p-5 space-y-4 bg-[#090D14]">
-                        <div class="text-brand-green font-bold text-xs flex items-center gap-2">
+                    <div class="p-6 space-y-4 bg-[#14100D]">
+                        <div class="text-[#E5A842] font-bold text-xs flex items-center gap-2">
                             <span>user@linuxedu:~$</span> 
-                            <span class="text-white font-normal">neofetch</span>
+                            <span class="text-[#EDE4D8] font-normal">neofetch</span>
                         </div>
                         
                         <div class="flex items-start gap-4">
-                            <!-- Real Tux Penguin ASCII Art -->
-                            <pre class="text-brand-green text-[11px] leading-tight select-none font-bold">
+                            <pre class="text-[#E5A842] text-[11px] leading-tight select-none font-bold">
        .--.
       |o_o |
       |:_/ |
@@ -158,20 +160,20 @@
    /'\_   _/`\
    \___)=(___/
                             </pre>
-                            <div class="space-y-1 text-gray-300 text-[11px]">
-                                <p><span class="text-brand-green font-bold">user@linuxedu</span></p>
-                                <p class="text-brand-border">-----------------</p>
-                                <p><span class="text-brand-green">OS:</span> LinuxEdu GNU/Linux</p>
-                                <p><span class="text-brand-green">Kernel:</span> 6.8.0-generic</p>
-                                <p><span class="text-brand-green">Shell:</span> bash 5.2.21</p>
-                                <p><span class="text-brand-green">Terminal:</span> web-pty sandbox</p>
-                                <p><span class="text-brand-green">Memory:</span> 512MiB / 8192MiB</p>
+                            <div class="space-y-1 text-[#DDD3C1] text-[11px]">
+                                <p><span class="text-[#E5A842] font-bold">user@linuxedu</span></p>
+                                <p class="text-[#42372F]">-----------------</p>
+                                <p><span class="text-[#E5A842]">OS:</span> LinuxEdu GNU/Linux 2026</p>
+                                <p><span class="text-[#E5A842]">Kernel:</span> 6.8.0-generic</p>
+                                <p><span class="text-[#E5A842]">Shell:</span> bash 5.2.21</p>
+                                <p><span class="text-[#E5A842]">Terminal:</span> web-pty sandbox</p>
+                                <p><span class="text-[#E5A842]">Memory:</span> 512MiB / 8192MiB</p>
                             </div>
                         </div>
 
-                        <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between text-[11px]">
-                            <span class="text-gray-400">Coba ketik perintah di modul praktek:</span>
-                            <a href="perintah-dasar.html" class="text-brand-green hover:underline font-bold">Buka Terminal →</a>
+                        <div class="pt-4 border-t border-[#382F27] flex items-center justify-between text-[11px]">
+                            <span class="text-[#88796B]">Eksekusi perintah di modul 04:</span>
+                            <a href="perintah-dasar.html" class="text-[#E5A842] hover:underline font-bold">Buka Terminal →</a>
                         </div>
                     </div>
                 </div>
@@ -180,118 +182,120 @@
         </div>
     </section>
 
-    <!-- ROADMAP ALUR BELAJAR SALING TERHUBUNG -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 w-full border-t border-brand-border/60">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-                <span class="text-brand-green font-mono text-xs font-semibold uppercase tracking-widest">ROADMAP KURIKULUM</span>
-                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Alur Pembelajaran Terpadu</h2>
+    <!-- ROADMAP ALUR BELAJAR (Asymmetrical Bento Grid) -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full border-t border-brand-border">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+            <div class="lg:col-span-7">
+                <span class="text-brand-amber font-mono text-xs font-semibold uppercase tracking-widest">STRUKTUR KURIKULUM</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-brand-ink mt-2 tracking-tight">Lima Tahap Penguasaan Sistem</h2>
             </div>
-            <p class="text-brand-grayText text-xs sm:text-sm max-w-md">
-                Setiap modul dirancang saling berkesinambungan. Mulai dari pemahaman arsitektur sistem hingga instalasi nyata di komputer Anda.
+            <p class="lg:col-span-5 text-brand-grayText text-xs sm:text-sm leading-relaxed">
+                Materi disusun berurutan dari tingkat perangkat keras paling dasar menuju administrasi baris perintah dan instalasi sistem fisik.
             </p>
         </div>
 
-        <!-- 5 Interconnected Modules Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Asymmetrical Bento Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
             
-            <!-- Modul 1 -->
-            <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-green transition flex flex-col justify-between group">
-                <div class="space-y-3">
+            <!-- Modul 1 (Span 7) -->
+            <div class="md:col-span-7 p-8 bg-brand-card border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
+                <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-green">MODUL 01</span>
-                        <span id="badge-modul-1" class="text-[10px] font-mono text-gray-500 px-2 py-0.5 rounded bg-brand-surface border border-brand-border">BELUM MULAI</span>
+                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 01</span>
+                        <span id="badge-modul-1" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-brand-green transition">Apa Itu Linux?</h3>
-                    <p class="text-xs text-brand-grayText leading-relaxed">
-                        Pahami perbedaan mendasar antara Kernel buatan Linus Torvalds dan ekosistem utilitas GNU. Eksplorasi diagram interaktif 4-layer sistem operasi.
+                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Apa Itu Linux?</h3>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-xl">
+                        Pemisahan tanggung jawab antara Kernel Linux buatan Linus Torvalds dan utilitas GNU. Dilengkapi diagram interaktif 4-lapis komunikasi perangkat keras hingga User Space.
                     </p>
                 </div>
-                <div class="pt-6 mt-4 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-gray-400">Fondasi Sistem</span>
-                    <a href="apa-itu-linux.html" class="text-xs font-mono text-brand-green hover:underline flex items-center gap-1 font-bold">
+                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
+                    <span class="text-[11px] font-mono text-brand-muted">Arsitektur &amp; Kernel</span>
+                    <a href="apa-itu-linux.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
                         Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Modul 2 -->
-            <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-green transition flex flex-col justify-between group">
-                <div class="space-y-3">
+            <!-- Modul 2 (Span 5) -->
+            <div class="md:col-span-5 p-8 bg-brand-surface border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
+                <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-green">MODUL 02</span>
-                        <span id="badge-modul-2" class="text-[10px] font-mono text-gray-500 px-2 py-0.5 rounded bg-brand-surface border border-brand-border">BELUM MULAI</span>
+                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 02</span>
+                        <span id="badge-modul-2" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-card border border-brand-border">BELUM MULAI</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-brand-green transition">Kelebihan &amp; Kekurangan</h3>
-                    <p class="text-xs text-brand-grayText leading-relaxed">
-                        Analisis jujur dan berimbang: keamanan hak akses POSIX, efisiensi RAM, versus tantangan kompatibilitas software proprietary &amp; solusi praktisnya.
+                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Kelebihan &amp; Kekurangan</h3>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                        Evaluasi teknis efisiensi memori, isolasi hak akses POSIX, serta kompromi kompatibilitas perangkat lunak komersial dan solusi alternatifnya.
                     </p>
                 </div>
-                <div class="pt-6 mt-4 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-gray-400">Evaluasi Realistis</span>
-                    <a href="kelebihan-kekurangan.html" class="text-xs font-mono text-brand-green hover:underline flex items-center gap-1 font-bold">
+                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
+                    <span class="text-[11px] font-mono text-brand-muted">Evaluasi Teknis</span>
+                    <a href="kelebihan-kekurangan.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
                         Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Modul 3 -->
-            <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-green transition flex flex-col justify-between group">
-                <div class="space-y-3">
+            <!-- Modul 3 (Span 5) -->
+            <div class="md:col-span-5 p-8 bg-brand-surface border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
+                <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-green">MODUL 03</span>
-                        <span id="badge-modul-3" class="text-[10px] font-mono text-gray-500 px-2 py-0.5 rounded bg-brand-surface border border-brand-border">BELUM MULAI</span>
+                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 03</span>
+                        <span id="badge-modul-3" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-card border border-brand-border">BELUM MULAI</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-brand-green transition">Katalog Distro Linux</h3>
-                    <p class="text-xs text-brand-grayText leading-relaxed">
-                        Kenali keluarga Debian, Red Hat, dan Arch. Gunakan filter interaktif untuk menemukan distro yang cocok dengan spek PC atau tujuan karir Anda.
+                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Katalog Distro Linux</h3>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                        Klasifikasi garis keturunan Debian, Red Hat, dan Arch beserta perbedaan manajer paket (<code class="text-brand-amber font-mono">apt</code>, <code class="text-brand-amber font-mono">dnf</code>, <code class="text-brand-amber font-mono">pacman</code>).
                     </p>
                 </div>
-                <div class="pt-6 mt-4 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-gray-400">Ekosistem &amp; Pilihan</span>
-                    <a href="distro-linux.html" class="text-xs font-mono text-brand-green hover:underline flex items-center gap-1 font-bold">
+                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
+                    <span class="text-[11px] font-mono text-brand-muted">Silsilah Distribusi</span>
+                    <a href="distro-linux.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
                         Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Modul 4 -->
-            <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-green transition flex flex-col justify-between group">
-                <div class="space-y-3">
+            <!-- Modul 4 (Span 7) -->
+            <div class="md:col-span-7 p-8 bg-brand-card border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
+                <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-green">MODUL 04</span>
-                        <span id="badge-modul-4" class="text-[10px] font-mono text-gray-500 px-2 py-0.5 rounded bg-brand-surface border border-brand-border">BELUM MULAI</span>
+                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 04</span>
+                        <span id="badge-modul-4" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-brand-green transition">Perintah Dasar &amp; Sandbox</h3>
-                    <p class="text-xs text-brand-grayText leading-relaxed">
-                        Latih 14+ perintah wajib terminal (pwd, ls, cd, mkdir, touch, cat, rm) langsung di sandbox virtual browser lengkap dengan 5 misi praktis bertahap.
+                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Perintah Dasar &amp; Terminal Sandbox</h3>
+                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-xl">
+                        Simulasi langsung 14 perintah wajib manajemen berkas dan direktori (<code class="text-brand-amber font-mono">pwd, ls, cd, mkdir, touch, cat, rm</code>) melalui 5 misi praktik terpandu.
                     </p>
                 </div>
-                <div class="pt-6 mt-4 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-gray-400">Praktek Interaktif</span>
-                    <a href="perintah-dasar.html" class="text-xs font-mono text-brand-green hover:underline flex items-center gap-1 font-bold">
-                        Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
+                    <span class="text-[11px] font-mono text-brand-muted">Praktik Shell POSIX</span>
+                    <a href="perintah-dasar.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
+                        Buka Terminal <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Modul 5 -->
-            <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-green transition flex flex-col justify-between group lg:col-span-2">
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-green">MODUL 05</span>
-                        <span id="badge-modul-5" class="text-[10px] font-mono text-gray-500 px-2 py-0.5 rounded bg-brand-surface border border-brand-border">BELUM MULAI</span>
+            <!-- Modul 5 (Full Span 12 with internal 8/4 split) -->
+            <div class="md:col-span-12 p-8 bg-brand-card border-l-4 border-l-brand-amber border-y border-r border-brand-border hover:border-brand-amber transition-colors duration-200 group">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-8 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 05</span>
+                            <span id="badge-modul-5" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Penutup, Setup Instalasi &amp; Sertifikat Kelulusan</h3>
+                        <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                            Panduan teknis 3 jalur instalasi pada mesin fisik (VirtualBox, WSL 2, dan Dual Boot) serta generator sertifikat format SVG beresolusi tinggi.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-brand-green transition">Penutup, Setup Instalasi &amp; Sertifikat</h3>
-                    <p class="text-xs text-brand-grayText leading-relaxed">
-                        Langkah berikutnya ke dunia nyata: 3 metode instalasi bebas risiko (VirtualBox, WSL 2 di Windows, atau Dual Boot), komunitas Linux Indonesia, dan generator sertifikat kelulusan asli yang bisa diunduh langsung.
-                    </p>
-                </div>
-                <div class="pt-6 mt-4 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-gray-400">Implementasi Nyata &amp; Sertifikat</span>
-                    <a href="penutup.html" class="text-xs font-mono text-brand-green hover:underline flex items-center gap-1 font-bold">
-                        Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
+                    <div class="lg:col-span-4 flex lg:justify-end">
+                        <a href="penutup.html" class="px-5 py-3 rounded-sm bg-brand-surface border border-brand-border group-hover:bg-brand-amber group-hover:text-white group-hover:border-brand-amber text-xs font-mono text-brand-ink flex items-center gap-2 font-bold transition-colors duration-200">
+                            <span>Akses Modul Penutup</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -299,15 +303,15 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#070A0F] border-t border-brand-border py-8 text-xs text-brand-grayText font-mono mt-12">
+    <footer class="bg-brand-surface border-t border-brand-border py-10 text-xs text-brand-grayText font-mono mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>LINUX.EDU &copy; 2026. Platform Kurikulum Terbuka &amp; Interaktif.</div>
-            <div class="flex items-center gap-4">
-                <a href="apa-itu-linux.html" class="hover:text-brand-green transition">Mulai Belajar</a>
-                <span>•</span>
-                <a href="perintah-dasar.html" class="hover:text-brand-green transition">Sandbox CLI</a>
-                <span>•</span>
-                <a href="penutup.html" class="hover:text-brand-green transition">Sertifikat</a>
+            <div>LINUX.EDU &copy; 2026 — Dokumentasi &amp; Kurikulum Sistem Operasi Terbuka.</div>
+            <div class="flex items-center gap-5">
+                <a href="apa-itu-linux.html" class="hover:text-brand-amber transition-colors duration-200">Modul 01</a>
+                <span>/</span>
+                <a href="perintah-dasar.html" class="hover:text-brand-amber transition-colors duration-200">Sandbox CLI</a>
+                <span>/</span>
+                <a href="penutup.html" class="hover:text-brand-amber transition-colors duration-200">Sertifikat</a>
             </div>
         </div>
     </footer>

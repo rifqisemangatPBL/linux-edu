@@ -1,5 +1,5 @@
 /**
- * LINUX.EDU - Core Application Engine
+ * LINUX.EDU - Core Application Engine (Vintage Edition)
  * Handles curriculum progress tracking, terminal virtualization,
  * interactive components, and cohesive navigation across modules.
  */
@@ -13,7 +13,7 @@ const LinuxEduTracker = {
         { id: 'modul-2', name: 'Kelebihan & Kekurangan', slug: 'kelebihan-kekurangan.html', num: 2 },
         { id: 'modul-3', name: 'Distro Linux', slug: 'distro-linux.html', num: 3 },
         { id: 'modul-4', name: 'Perintah Dasar', slug: 'perintah-dasar.html', num: 4 },
-        { id: 'modul-5', name: 'Penutup & Langkah Lanjut', slug: 'penutup.html', num: 5 }
+        { id: 'modul-5', name: 'Penutup & Setup', slug: 'penutup.html', num: 5 }
     ],
 
     getProgress() {
@@ -39,7 +39,6 @@ const LinuxEduTracker = {
             state.completed.push(moduleId);
             this.saveProgress(state);
         }
-        this.renderHeaderProgress();
         this.renderRoadmapBadges();
     },
 
@@ -66,32 +65,7 @@ const LinuxEduTracker = {
     },
 
     renderHeaderProgress() {
-        const state = this.getProgress();
-        const total = this.MODULES.length;
-        const count = state.completed.length;
-        const percent = Math.round((count / total) * 100);
-
-        const el = document.getElementById('global-progress-indicator');
-        if (el) {
-            el.innerHTML = `
-                <div class="flex items-center gap-2">
-                    <div class="w-16 sm:w-24 bg-brand-surface rounded-full h-1.5 overflow-hidden border border-brand-border">
-                        <div class="bg-brand-green h-full transition-all duration-500" style="width: ${percent}%"></div>
-                    </div>
-                    <span class="text-[11px] font-mono text-gray-300 font-bold">${count}/${total} <span class="hidden sm:inline">Modul</span> (${percent}%)</span>
-                </div>
-            `;
-        }
-
-        // Update nav links with checkmarks if completed
-        this.MODULES.forEach(m => {
-            const navLink = document.querySelector(`a[data-module-id="${m.id}"]`);
-            if (navLink && state.completed.includes(m.id)) {
-                if (!navLink.querySelector('.completed-badge')) {
-                    navLink.classList.add('border-b', 'border-brand-green/40');
-                }
-            }
-        });
+        // Live status indicator in navbar removed by user request
     },
 
     renderRoadmapBadges() {
@@ -101,28 +75,28 @@ const LinuxEduTracker = {
             if (badge) {
                 if (state.completed.includes(m.id)) {
                     badge.innerHTML = `<i class="fa-solid fa-circle-check text-brand-green mr-1"></i> SELESAI`;
-                    badge.className = "text-[10px] font-mono font-bold text-brand-green px-2 py-0.5 rounded bg-brand-green/10 border border-brand-green/30";
+                    badge.className = "text-[10px] font-mono font-bold text-brand-green px-2 py-0.5 rounded bg-[#EEF5EF] border border-brand-green/30";
                 }
             }
         });
 
-        // Summary on Halaman 6
+        // Summary on Penutup page
         const summaryContainer = document.getElementById('completed-modules-summary');
         if (summaryContainer) {
             summaryContainer.innerHTML = this.MODULES.map(m => {
                 const isDone = state.completed.includes(m.id);
                 return `
-                    <div class="p-3 rounded-lg border ${isDone ? 'border-brand-green/40 bg-brand-green/5' : 'border-brand-border bg-brand-surface'} flex items-center justify-between">
+                    <div class="p-3.5 rounded-xl border ${isDone ? 'border-brand-green/40 bg-[#EEF5EF]' : 'border-brand-border bg-brand-card'} flex items-center justify-between shadow-sm">
                         <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-mono font-bold ${isDone ? 'bg-brand-green text-black' : 'bg-brand-surface text-gray-500 border border-brand-border'}">
+                            <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-mono font-bold ${isDone ? 'bg-brand-green text-white' : 'bg-brand-surface text-brand-muted border border-brand-border'}">
                                 ${isDone ? '✓' : m.num}
                             </span>
                             <div>
-                                <div class="text-xs font-bold text-white">${m.name}</div>
-                                <div class="text-[10px] text-gray-400 font-mono">${isDone ? 'Telah dipelajari' : 'Belum selesai'}</div>
+                                <div class="text-xs font-bold text-brand-ink">${m.name}</div>
+                                <div class="text-[10px] text-brand-grayText font-mono">${isDone ? 'Telah dipelajari' : 'Belum selesai'}</div>
                             </div>
                         </div>
-                        <a href="${m.slug}" class="text-xs font-mono ${isDone ? 'text-brand-green hover:underline' : 'text-gray-400 hover:text-white'}">
+                        <a href="${m.slug}" class="text-xs font-mono font-bold ${isDone ? 'text-brand-green hover:underline' : 'text-brand-muted hover:text-brand-ink'}">
                             ${isDone ? 'Ulas Modul →' : 'Pelajari →'}
                         </a>
                     </div>
@@ -140,10 +114,10 @@ function showToast(message) {
     if (!toast) {
         toast = document.createElement('div');
         toast.id = 'toast-notification';
-        toast.className = 'fixed bottom-5 right-5 z-50 px-4 py-3 bg-[#111722] text-brand-green font-mono text-xs font-bold rounded-lg border border-brand-green/40 shadow-2xl transition-all duration-300 transform translate-y-10 opacity-0 flex items-center gap-2';
+        toast.className = 'fixed bottom-5 right-5 z-50 px-4 py-3 bg-[#2B231D] text-[#EDE4D8] font-mono text-xs font-medium rounded-xl border border-[#42372F] shadow-2xl transition-all duration-300 transform translate-y-10 opacity-0 flex items-center gap-2.5';
         document.body.appendChild(toast);
     }
-    toast.innerHTML = `<i class="fa-solid fa-terminal text-brand-green"></i> <span>${message}</span>`;
+    toast.innerHTML = `<i class="fa-solid fa-terminal text-brand-amber"></i> <span>${message}</span>`;
     toast.classList.remove('translate-y-10', 'opacity-0');
     clearTimeout(window.__toastTimer);
     window.__toastTimer = setTimeout(() => {
@@ -242,10 +216,10 @@ function clearTerm() {
     const out = document.getElementById('term-output');
     if (out) {
         out.innerHTML = `
-            <div class="text-brand-grayText text-[11px] mb-2 font-mono">
-                Terminal Linux.Edu siap digunakan. Ketik <span class="text-brand-green">help</span> untuk daftar perintah atau ikuti Misi Interaktif di bawah.
+            <div class="text-[#88796B] text-[11px] mb-2 font-mono">
+                Terminal Linux.Edu siap digunakan. Ketik <span class="text-[#E5A842] font-bold">help</span> untuk daftar perintah atau selesaikan 5 Misi di atas!
             </div>
-            <div><span class="text-brand-green font-bold">user@linuxedu:${getPrettyPath()}$</span></div>
+            <div><span class="text-[#E5A842] font-bold">user@linuxedu:${getPrettyPath()}$</span></div>
         `;
     }
 }
@@ -277,11 +251,11 @@ function execCLI(cmd) {
     const currentPromptPath = getPrettyPath();
     const line = document.createElement('div');
     line.className = 'mt-1';
-    line.innerHTML = `<span class="text-brand-green font-bold">user@linuxedu:${currentPromptPath}$</span> <span class="text-white">${escapeHtml(cmd)}</span>`;
+    line.innerHTML = `<span class="text-[#E5A842] font-bold">user@linuxedu:${currentPromptPath}$</span> <span class="text-[#EDE4D8]">${escapeHtml(cmd)}</span>`;
     out.appendChild(line);
 
     const res = document.createElement('div');
-    res.className = 'text-gray-300 ml-1 mb-2 font-mono text-xs whitespace-pre-wrap leading-relaxed';
+    res.className = 'text-[#DDD3C1] ml-1 mb-2 font-mono text-xs whitespace-pre-wrap leading-relaxed';
 
     const parts = cmd.trim().split(/\s+/);
     const main = parts[0].toLowerCase();
@@ -312,14 +286,14 @@ function execCLI(cmd) {
                         const isDir = item.endsWith('/') || (VirtualFS.tree[resolvePath(item)] && VirtualFS.tree[resolvePath(item)].type === 'dir');
                         const perms = isDir ? 'drwxr-xr-x' : '-rw-r--r--';
                         const size = isDir ? '4096' : ' 1024';
-                        const colorClass = isDir ? 'text-blue-400 font-bold' : 'text-gray-200';
-                        return `${perms} 1 user user ${size} Nov  7 23:00 <span class="${colorClass}">${item}</span>`;
+                        const colorClass = isDir ? 'text-[#E5A842] font-bold' : 'text-[#EDE4D8]';
+                        return `${perms} 1 user user ${size} Nov  8 12:00 <span class="${colorClass}">${item}</span>`;
                     });
                     res.innerHTML = rows.join('\n');
                 } else {
                     res.innerHTML = fileList.map(item => {
                         const isDir = item.endsWith('/') || (VirtualFS.tree[resolvePath(item)] && VirtualFS.tree[resolvePath(item)].type === 'dir');
-                        return isDir ? `<span class="text-blue-400 font-bold">${item}/</span>` : `<span class="text-gray-200">${item}</span>`;
+                        return isDir ? `<span class="text-[#E5A842] font-bold">${item}/</span>` : `<span class="text-[#EDE4D8]">${item}</span>`;
                     }).join('   ');
                 }
             }
@@ -368,7 +342,7 @@ function execCLI(cmd) {
                     } else {
                         cur.files.push(arg1);
                         VirtualFS.tree[newFolderPath] = { type: 'dir', files: [] };
-                        res.innerHTML = `<span class="text-brand-green">Direktori '${escapeHtml(arg1)}' berhasil dibuat.</span>`;
+                        res.innerHTML = `<span class="text-[#7BC584]">Direktori '${escapeHtml(arg1)}' berhasil dibuat.</span>`;
                         if (arg1 === 'belajar_linux') {
                             checkMission('mkdir');
                         }
@@ -388,7 +362,7 @@ function execCLI(cmd) {
                         if (!cur.contents) cur.contents = {};
                         cur.contents[arg1] = '';
                     }
-                    res.innerHTML = `<span class="text-brand-green">Berkas '${escapeHtml(arg1)}' siap digunakan.</span>`;
+                    res.innerHTML = `<span class="text-[#7BC584]">Berkas '${escapeHtml(arg1)}' siap digunakan.</span>`;
                     if (arg1 === 'catatan.txt' || arg1.endsWith('.txt')) {
                         checkMission('touch');
                     }
@@ -405,7 +379,6 @@ function execCLI(cmd) {
                     res.textContent = cur.contents[arg1] || '(Berkas kosong)';
                 } else {
                     const resolved = resolvePath(arg1);
-                    // Check if absolute path in other dir
                     let found = false;
                     for (const dir in VirtualFS.tree) {
                         if (VirtualFS.tree[dir].contents && VirtualFS.tree[dir].contents[arg1]) {
@@ -456,23 +429,23 @@ function execCLI(cmd) {
         case 'neofetch':
             res.innerHTML = `
 <div class="flex items-start gap-4 text-xs font-mono">
-<pre class="text-brand-green leading-none select-none font-bold">
+<pre class="text-[#E5A842] leading-none select-none font-bold">
        .--.
       |o_o |
       |:_/ |
      //   \\ \\
     (|     | )
-   /'\\_   _/\`\\
+   /'\\_   _/\\
    \\___)=(___/
 </pre>
-<div class="space-y-0.5 text-gray-300">
-  <div><span class="text-brand-green font-bold">user@linuxedu</span></div>
-  <div class="text-brand-border">-----------------</div>
-  <div><span class="text-brand-green">OS:</span> LinuxEdu GNU/Linux 2026 LTS</div>
-  <div><span class="text-brand-green">Kernel:</span> 6.8.0-generic</div>
-  <div><span class="text-brand-green">Uptime:</span> 12 hours, 34 mins</div>
-  <div><span class="text-brand-green">Shell:</span> bash 5.2.21</div>
-  <div><span class="text-brand-green">Memory:</span> 512MiB / 8192MiB</div>
+<div class="space-y-0.5 text-[#DDD3C1]">
+  <div><span class="text-[#E5A842] font-bold">user@linuxedu</span></div>
+  <div class="text-[#42372F]">-----------------</div>
+  <div><span class="text-[#E5A842]">OS:</span> LinuxEdu GNU/Linux 2026 LTS</div>
+  <div><span class="text-[#E5A842]">Kernel:</span> 6.8.0-generic</div>
+  <div><span class="text-[#E5A842]">Uptime:</span> 12 hours, 34 mins</div>
+  <div><span class="text-[#E5A842]">Shell:</span> bash 5.2.21</div>
+  <div><span class="text-[#E5A842]">Memory:</span> 512MiB / 8192MiB</div>
 </div>
 </div>`;
             break;
@@ -483,7 +456,7 @@ function execCLI(cmd) {
 
         case 'help':
             res.innerHTML = `
-<span class="text-brand-green font-bold">Daftar Perintah yang Didukung di Sandbox Ini:</span>
+<span class="text-[#E5A842] font-bold">Daftar Perintah yang Didukung di Sandbox Ini:</span>
   • <span class="text-white font-bold">pwd</span>               : Menampilkan direktori kerja saat ini
   • <span class="text-white font-bold">ls</span> [opsi]         : Menampilkan daftar berkas (-l, -la, -a)
   • <span class="text-white font-bold">cd</span> &lt;direktori&gt;    : Berpindah direktori (~ untuk home, .. untuk naik)
@@ -499,7 +472,7 @@ function execCLI(cmd) {
             break;
 
         default:
-            res.innerHTML = `<span class="text-red-400">bash: ${escapeHtml(main)}: command not found.</span>\nKetik <span class="text-brand-green cursor-pointer underline" onclick="runCmd('help')">'help'</span> untuk melihat perintah yang tersedia.`;
+            res.innerHTML = `<span class="text-[#E06C75]">bash: ${escapeHtml(main)}: command not found.</span>\nKetik <span class="text-[#E5A842] cursor-pointer underline" onclick="runCmd('help')">'help'</span> untuk melihat perintah yang tersedia.`;
     }
 
     out.appendChild(res);
@@ -532,7 +505,7 @@ function checkMission(type) {
             badge.innerHTML = `<i class="fa-solid fa-circle-check"></i> Selesai`;
         }
         if (card) {
-            card.classList.add('border-brand-green/60', 'bg-brand-green/5');
+            card.classList.add('border-brand-green', 'bg-[#EEF5EF]');
             card.classList.remove('border-brand-border');
         }
 
@@ -549,7 +522,7 @@ function checkMission(type) {
         }
 
         if (count === total) {
-            showToast('🎉 Hebat! Semua misi terminal dasar berhasil diselesaikan!');
+            showToast('🎉 Hebat! Semua 5 misi terminal berhasil diselesaikan!');
         }
     }
 }
@@ -566,7 +539,7 @@ function filterTable() {
 }
 
 // ==========================================
-// 4. ARCHITECTURE LAYER EXPLORER (Module 2)
+// 4. ARCHITECTURE LAYER EXPLORER (Module 1)
 // ==========================================
 const ARCH_DETAILS = {
     user: {
@@ -605,14 +578,14 @@ function selectArchLayer(layerKey) {
 
     // Remove active styles from all buttons
     document.querySelectorAll('.arch-btn').forEach(btn => {
-        btn.classList.remove('border-brand-green', 'bg-brand-green/10', 'text-white');
-        btn.classList.add('border-brand-border', 'text-gray-300');
+        btn.classList.remove('border-brand-amber', 'bg-brand-surface', 'text-brand-ink');
+        btn.classList.add('border-brand-border', 'bg-brand-card', 'text-brand-grayText');
     });
 
     const activeBtn = document.getElementById(`arch-btn-${layerKey}`);
     if (activeBtn) {
-        activeBtn.classList.remove('border-brand-border', 'text-gray-300');
-        activeBtn.classList.add('border-brand-green', 'bg-brand-green/10', 'text-white');
+        activeBtn.classList.remove('border-brand-border', 'bg-brand-card', 'text-brand-grayText');
+        activeBtn.classList.add('border-brand-amber', 'bg-brand-surface', 'text-brand-ink');
     }
 
     const titleEl = document.getElementById('arch-display-title');
@@ -624,14 +597,14 @@ function selectArchLayer(layerKey) {
     if (titleEl) titleEl.textContent = data.title;
     if (subEl) subEl.textContent = data.subtitle;
     if (descEl) descEl.textContent = data.desc;
-    if (analogyEl) analogyEl.innerHTML = `<span class="text-brand-green font-bold">Analogi Nyata:</span> ${data.analogy}`;
+    if (analogyEl) analogyEl.innerHTML = `<span class="text-brand-amber font-bold font-mono">Analogi Nyata:</span> ${data.analogy}`;
     if (techEl) {
-        techEl.innerHTML = data.tech.map(t => `<span class="px-2.5 py-1 rounded bg-brand-surface border border-brand-border text-[11px] font-mono text-gray-300">${t}</span>`).join('');
+        techEl.innerHTML = data.tech.map(t => `<span class="px-2.5 py-1 rounded-lg bg-brand-card border border-brand-border text-[11px] font-mono text-brand-ink">${t}</span>`).join('');
     }
 }
 
 // ==========================================
-// 5. DISTRO RECOMMENDER & FILTER (Module 4)
+// 5. DISTRO RECOMMENDER & FILTER (Module 3)
 // ==========================================
 const DISTROS_DATA = [
     {
@@ -658,7 +631,7 @@ const DISTROS_DATA = [
         name: "Debian",
         family: "Debian",
         category: "server",
-        badge: "Fondasi Kestabilan Batu Karang",
+        badge: "Fondasi Batu Karang",
         pkg: "apt / dpkg",
         de: "Bebas pilih (GNOME, XFCE)",
         desc: "Dikenal sangat konservatif dan stabil tanpa crash. Menjadi induk dari Ubuntu dan ratusan distro lainnya.",
@@ -709,14 +682,14 @@ const DISTROS_DATA = [
 function filterDistros(cat) {
     // Update active tab buttons
     document.querySelectorAll('.distro-filter-btn').forEach(btn => {
-        btn.classList.remove('bg-brand-green', 'text-black', 'font-bold');
-        btn.classList.add('bg-brand-surface', 'text-gray-300');
+        btn.classList.remove('bg-brand-amber', 'text-white', 'font-bold');
+        btn.classList.add('bg-brand-surface', 'text-brand-grayText');
     });
 
     const activeBtn = document.getElementById(`distro-tab-${cat}`);
     if (activeBtn) {
-        activeBtn.classList.remove('bg-brand-surface', 'text-gray-300');
-        activeBtn.classList.add('bg-brand-green', 'text-black', 'font-bold');
+        activeBtn.classList.remove('bg-brand-surface', 'text-brand-grayText');
+        activeBtn.classList.add('bg-brand-amber', 'text-white', 'font-bold');
     }
 
     const container = document.getElementById('distros-grid-container');
@@ -725,34 +698,34 @@ function filterDistros(cat) {
     const filtered = cat === 'all' ? DISTROS_DATA : DISTROS_DATA.filter(d => d.category === cat || (cat === 'beginner' && (d.category === 'beginner')));
 
     container.innerHTML = filtered.map(d => `
-        <div class="distro-card p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between">
+        <div class="distro-card p-6 rounded-2xl bg-brand-card border border-brand-border space-y-4 flex flex-col justify-between shadow-sm">
             <div class="space-y-3">
                 <div class="flex items-center justify-between text-xs font-mono">
-                    <span class="px-2.5 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-green font-bold">${d.badge}</span>
-                    <span class="text-gray-400 font-sans text-[11px]">${d.family} Base</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-brand-surface border border-brand-border text-brand-amber font-bold">${d.badge}</span>
+                    <span class="text-brand-muted font-sans text-[11px]">${d.family} Base</span>
                 </div>
-                <h3 class="text-2xl font-bold text-white">${d.name}</h3>
+                <h3 class="text-2xl font-bold text-brand-ink">${d.name}</h3>
                 <p class="text-xs text-brand-grayText leading-relaxed">${d.desc}</p>
                 
                 <div class="space-y-1.5 pt-2 text-xs font-mono">
-                    <div class="flex justify-between border-b border-brand-border/40 pb-1">
-                        <span class="text-gray-400">Package Manager:</span>
-                        <span class="text-brand-green font-bold">${d.pkg}</span>
+                    <div class="flex justify-between border-b border-brand-border/60 pb-1">
+                        <span class="text-brand-muted">Package Manager:</span>
+                        <span class="text-brand-amber font-bold">${d.pkg}</span>
                     </div>
-                    <div class="flex justify-between border-b border-brand-border/40 pb-1">
-                        <span class="text-gray-400">Default Desktop:</span>
-                        <span class="text-white">${d.de}</span>
+                    <div class="flex justify-between border-b border-brand-border/60 pb-1">
+                        <span class="text-brand-muted">Default Desktop:</span>
+                        <span class="text-brand-ink">${d.de}</span>
                     </div>
                     <div class="flex justify-between pt-1">
-                        <span class="text-gray-400">Cocok Untuk:</span>
-                        <span class="text-gray-300 font-sans text-right">${d.target}</span>
+                        <span class="text-brand-muted">Cocok Untuk:</span>
+                        <span class="text-brand-grayText font-sans text-right">${d.target}</span>
                     </div>
                 </div>
             </div>
 
             <div class="pt-4 mt-2 border-t border-brand-border/60">
-                <button onclick="runCmd('echo Memilih distro ${d.name} dengan paket ${d.pkg}')" class="w-full py-2 rounded bg-brand-surface hover:bg-brand-green hover:text-black transition border border-brand-border text-xs font-mono text-gray-300 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-code text-xs"></i> Latihan Paket Ini di Modul 5
+                <button onclick="runCmd('echo Memilih distro ${d.name} dengan paket ${d.pkg}')" class="w-full py-2 rounded-lg bg-brand-surface hover:bg-brand-amber hover:text-white transition border border-brand-border text-xs font-mono text-brand-grayText flex items-center justify-center gap-2 font-medium">
+                    <i class="fa-solid fa-code text-xs"></i> Latihan Paket Ini di Modul 4
                 </button>
             </div>
         </div>
@@ -760,7 +733,7 @@ function filterDistros(cat) {
 }
 
 // ==========================================
-// 6. REAL CERTIFICATE GENERATOR (Module 6)
+// 6. REAL CERTIFICATE GENERATOR (Module 5)
 // ==========================================
 function updateCertificatePreview() {
     const nameInput = document.getElementById('cert-student-name');
@@ -785,33 +758,37 @@ function downloadCertificateSVG() {
 
     const svgContent = `
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
-    <rect width="900" height="600" fill="#0B0F17" />
-    <rect x="25" y="25" width="850" height="550" rx="16" fill="#111722" stroke="#212D40" stroke-width="2" />
-    <rect x="35" y="35" width="830" height="530" rx="12" fill="none" stroke="#00E676" stroke-width="1" stroke-dasharray="8 6" opacity="0.4" />
-    
-    <!-- Header -->
-    <text x="450" y="90" font-family="Courier, monospace" font-size="14" fill="#00E676" font-weight="bold" letter-spacing="4" text-anchor="middle">LINUX.EDU — OPEN CURRICULUM</text>
-    <text x="450" y="140" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#FFFFFF" font-weight="800" text-anchor="middle">SERTIFIKAT KELULUSAN</text>
-    <text x="450" y="170" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#8B9B9E" text-anchor="middle">Diberikan sebagai pengakuan atas penguasaan dasar sistem operasi Linux &amp; POSIX CLI:</text>
-    
-    <!-- Student Name -->
-    <line x1="200" y1="260" x2="700" y2="260" stroke="#00E676" stroke-width="2" />
-    <text x="450" y="240" font-family="'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#00E676" font-weight="bold" text-anchor="middle">${escapeHtml(name)}</text>
-    
-    <!-- Curriculum modules -->
-    <text x="450" y="310" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#E2E8F0" text-anchor="middle">Telah menyelesaikan seluruh rangkaian modul kurikulum:</text>
-    <text x="450" y="340" font-family="Courier, monospace" font-size="12" fill="#94A3B8" text-anchor="middle">Kernel Architecture • Evaluasi Keamanan • Ragam Distro • 14+ CLI Commands • Setup Instalasi</text>
-    
-    <!-- Footer Details -->
-    <text x="120" y="480" font-family="Courier, monospace" font-size="11" fill="#64748B">TANGGAL PENYELESAIAN</text>
-    <text x="120" y="505" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">${today}</text>
-    
-    <text x="780" y="480" font-family="Courier, monospace" font-size="11" fill="#64748B" text-anchor="end">NOMOR VERIFIKASI</text>
-    <text x="780" y="505" font-family="Courier, monospace" font-size="14" fill="#00E676" font-weight="bold" text-anchor="end">${serial}</text>
+    <!-- Vintage Background & Border Frames -->
+    <rect width="900" height="600" fill="#F6F3EC" />
+    <rect x="25" y="25" width="850" height="550" rx="8" fill="#FFFDF9" stroke="#DDD3C1" stroke-width="2" />
+    <rect x="35" y="35" width="830" height="530" rx="6" fill="none" stroke="#B85D19" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6" />
+    <rect x="42" y="42" width="816" height="516" rx="4" fill="none" stroke="#2B231D" stroke-width="0.8" opacity="0.3" />
 
-    <!-- Center Seal -->
-    <circle cx="450" cy="480" r="32" fill="#161E2D" stroke="#00E676" stroke-width="2"/>
-    <text x="450" y="486" font-family="Courier, monospace" font-size="16" fill="#00E676" font-weight="bold" text-anchor="middle">🐧</text>
+    <!-- Header -->
+    <text x="450" y="85" font-family="'JetBrains Mono', Courier, monospace" font-size="12" fill="#B85D19" font-weight="bold" letter-spacing="4" text-anchor="middle">LINUX.EDU — KURIKULUM DASAR TERBUKA</text>
+    <text x="450" y="130" font-family="'Fraunces', Georgia, serif" font-size="28" fill="#2B231D" font-weight="bold" text-anchor="middle">SERTIFIKAT KELULUSAN</text>
+    <text x="450" y="160" font-family="'Inter', Arial, sans-serif" font-size="12" fill="#63574B" text-anchor="middle">Diberikan sebagai pengakuan atas penguasaan fondasi arsitektur Linux &amp; terminal POSIX:</text>
+
+    <!-- Student Name -->
+    <text x="450" y="235" font-family="'Fraunces', Georgia, serif" font-size="34" fill="#B85D19" font-weight="bold" text-anchor="middle">${escapeHtml(name)}</text>
+    <line x1="220" y1="252" x2="680" y2="252" stroke="#B85D19" stroke-width="1.5" />
+
+    <!-- Curriculum modules -->
+    <text x="450" y="295" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#2B231D" font-weight="bold" text-anchor="middle">Telah menyelesaikan seluruh rangkaian modul kurikulum:</text>
+    <text x="450" y="325" font-family="'JetBrains Mono', monospace" font-size="11" fill="#63574B" text-anchor="middle">1. Arsitektur Kernel • 2. Keamanan POSIX • 3. Silsilah Distro • 4. Sandbox CLI • 5. Setup Mandiri</text>
+
+    <!-- Center Vintage Seal -->
+    <circle cx="450" cy="425" r="34" fill="#EDE6DA" stroke="#B85D19" stroke-width="2"/>
+    <circle cx="450" cy="425" r="28" fill="none" stroke="#DDD3C1" stroke-width="1" stroke-dasharray="3 2"/>
+    <text x="450" y="432" font-family="'Inter', sans-serif" font-size="22" text-anchor="middle">🐧</text>
+    <text x="450" y="475" font-family="'JetBrains Mono', monospace" font-size="10" fill="#3E6548" font-weight="bold" letter-spacing="1" text-anchor="middle">VERIFIED COMPLETE</text>
+
+    <!-- Footer Details -->
+    <text x="90" y="525" font-family="'JetBrains Mono', monospace" font-size="10" fill="#88796B">TANGGAL PENYELESAIAN</text>
+    <text x="90" y="545" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#2B231D" font-weight="bold">${today}</text>
+
+    <text x="810" y="525" font-family="'JetBrains Mono', monospace" font-size="10" fill="#88796B" text-anchor="end">KODE VERIFIKASI DOKUMEN</text>
+    <text x="810" y="545" font-family="'JetBrains Mono', monospace" font-size="13" fill="#B85D19" font-weight="bold" text-anchor="end">${serial}</text>
 </svg>`;
 
     const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
@@ -868,7 +845,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pageId) {
         LinuxEduTracker.markVisited(pageId);
     } else {
-        LinuxEduTracker.renderHeaderProgress();
         LinuxEduTracker.renderRoadmapBadges();
     }
 

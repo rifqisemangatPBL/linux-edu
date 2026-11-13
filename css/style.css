@@ -1,55 +1,85 @@
-/* Custom Styling & Enhancements for LINUX.EDU */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* LINUX.EDU — Vintage Edition Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-    --brand-dark: #0B0F17;
-    --brand-surface: #111722;
-    --brand-card: #161E2D;
-    --brand-border: #212D40;
-    --brand-green: #00E676;
-    --brand-green-light: #33EF8F;
-    --brand-gray: #8B9B9E;
+    --brand-dark: #F6F3EC;
+    --brand-surface: #EDE6DA;
+    --brand-card: #FFFFFF;
+    --brand-card-alt: #F4EFE6;
+    --brand-border: #DDD3C1;
+    --brand-amber: #B85D19;
+    --brand-amber-light: #D47530;
+    --brand-green: #3E6548;
+    --brand-green-light: #527F5D;
+    --brand-ink: #2B231D;
+    --brand-gray: #63574B;
+    --brand-muted: #88796B;
 }
 
+body {
+    background-color: var(--brand-dark);
+    color: var(--brand-ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+h1, h2, h3, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.015em;
+}
+
+/* Custom Vintage Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #0B0F17;
+    background: #F6F3EC;
 }
 ::-webkit-scrollbar-thumb {
-    background: #212D40;
+    background: #DDD3C1;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #00E676;
+    background: #B85D19;
 }
 
-.glow-green {
-    box-shadow: 0 0 25px -5px rgba(0, 230, 118, 0.25);
+/* Vintage Card Shadows */
+.vintage-card {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD3C1;
+    box-shadow: 0 2px 8px rgba(43, 35, 29, 0.05);
 }
 
-.glow-card {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.vintage-card-hover {
+    transition: all 0.2s ease-in-out;
+}
+.vintage-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(43, 35, 29, 0.08);
+    border-color: #B85D19;
 }
 
-.glow-green-subtle {
-    box-shadow: 0 0 15px -3px rgba(0, 230, 118, 0.15);
-}
-
-/* Custom terminal output scroll */
+/* Terminal CRT Scrollbar & Cursor */
 .term-scroll {
     scrollbar-width: thin;
-    scrollbar-color: #212D40 #090D14;
+    scrollbar-color: #3E342B #181411;
+}
+.term-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.term-scroll::-webkit-scrollbar-track {
+    background: #181411;
+}
+.term-scroll::-webkit-scrollbar-thumb {
+    background: #3E342B;
+    border-radius: 3px;
 }
 
-/* Blinking terminal cursor */
 .terminal-cursor {
     display: inline-block;
     width: 8px;
     height: 15px;
-    background-color: #00E676;
+    background-color: #E5A842;
     animation: blink 1s step-start infinite;
     vertical-align: middle;
 }
@@ -58,36 +88,36 @@
     50% { opacity: 0; }
 }
 
-/* Architecture layer active states */
+/* Architecture Layer Interactive States */
 .arch-layer {
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
 }
 .arch-layer:hover {
-    transform: translateY(-2px);
-    border-color: #00E676;
+    transform: translateY(-1px);
+    border-color: #B85D19;
 }
 .arch-layer.active {
-    border-color: #00E676;
-    background-color: rgba(0, 230, 118, 0.08);
+    border-color: #B85D19;
+    background-color: #F8EFE6;
 }
 
-/* Distro card hover & badge */
+/* Distro Cards */
 .distro-card {
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
 }
 .distro-card:hover {
-    transform: translateY(-4px);
-    border-color: #00E676;
-    box-shadow: 0 12px 30px -10px rgba(0, 230, 118, 0.2);
+    transform: translateY(-2px);
+    border-color: #B85D19;
+    box-shadow: 0 8px 20px rgba(43, 35, 29, 0.08);
 }
 
-/* Table command row highlight */
+/* Command Row Hover */
 .cmd-row:hover {
-    background-color: rgba(33, 45, 64, 0.5);
+    background-color: #F4EFE6;
 }
 
-/* Mission checklist animation */
+/* Completed Mission State */
 .mission-item.completed {
-    border-color: rgba(0, 230, 118, 0.4);
-    background-color: rgba(0, 230, 118, 0.05);
+    border-color: rgba(62, 101, 72, 0.4);
+    background-color: rgba(62, 101, 72, 0.06);
 }
