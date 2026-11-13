@@ -47,24 +47,24 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2.5 font-mono text-base font-bold tracking-wider text-brand-ink group">
-                    <span class="w-8 h-8 rounded-sm bg-brand-surface border border-brand-border flex items-center justify-center text-brand-amber group-hover:border-brand-amber transition-colors duration-200">
+                    <span class="w-8 h-8 rounded-sm bg-brand-surface border border-brand-border flex items-center justify-center text-brand-amber group-hover:border-brand-amber transition-all duration-300">
                         <i class="fa-solid fa-terminal text-xs"></i>
                     </span>
                     <span>LINUX<span class="text-brand-amber">.EDU</span></span>
                 </a>
 
                 <nav class="hidden md:flex items-center space-x-1 font-mono text-xs">
-                    <a href="index.html" class="px-3.5 py-1.5 rounded-sm bg-brand-amber text-white font-bold transition-colors duration-200">Beranda</a>
-                    <a href="apa-itu-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Apa Itu Linux</a>
-                    <a href="kelebihan-kekurangan.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Kelebihan &amp; Kekurangan</a>
-                    <a href="distro-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Distro Linux</a>
-                    <a href="perintah-dasar.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Perintah Dasar</a>
-                    <a href="penutup.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors duration-200">Penutup</a>
+                    <a href="index.html" class="px-3.5 py-1.5 rounded-sm bg-brand-amber text-white font-bold">Beranda</a>
+                    <a href="apa-itu-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors">Apa Itu Linux</a>
+                    <a href="kelebihan-kekurangan.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors">Kelebihan &amp; Kekurangan</a>
+                    <a href="distro-linux.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors">Distro Linux</a>
+                    <a href="perintah-dasar.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors">Perintah Dasar</a>
+                    <a href="penutup.html" class="px-3.5 py-1.5 rounded-sm text-brand-grayText hover:text-brand-ink hover:bg-brand-surface transition-colors">Penutup</a>
                 </nav>
 
                 <div class="flex items-center gap-2">
-                    <a href="apa-itu-linux.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-sm bg-brand-ink text-brand-dark font-mono font-bold text-xs hover:bg-brand-amber transition-colors duration-200">
-                        <span>Modul 01</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    <a href="apa-itu-linux.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-sm bg-brand-ink text-brand-dark font-mono font-bold text-xs hover:bg-brand-amber transition-colors">
+                        <span>Modul 01</span> <span aria-hidden="true">→</span>
                     </a>
                     <button id="mobile-menu-btn" class="md:hidden p-2 text-brand-grayText hover:text-brand-ink">
                         <i class="fa-solid fa-bars text-lg"></i>
@@ -83,50 +83,50 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (60/40 Asymmetrical Split) -->
+    <!-- HERO SECTION (Asymmetrical Editorial Layout) -->
     <section class="pt-32 pb-24 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            <div class="lg:col-span-7 space-y-7">
-                <div class="inline-flex items-center gap-2.5 border-l-2 border-brand-amber pl-3 text-brand-amber text-xs font-mono tracking-wider uppercase font-semibold">
-                    <span>Kurikulum Terbuka &amp; Terminal Sandbox</span>
+            <div class="lg:col-span-7 space-y-8">
+                <div class="border-l-2 border-brand-amber pl-3 text-brand-amber text-xs font-mono tracking-wider uppercase font-semibold">
+                    Kurikulum Terbuka &amp; Terminal Sandbox
                 </div>
                 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-brand-ink tracking-tight leading-[1.1]">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-brand-ink tracking-tight leading-[1.08]">
                     Bedah Arsitektur <br/>
                     <span class="text-brand-amber">Sistem Operasi Linux</span> <br/>
                     Dari Kernel ke Shell.
                 </h1>
 
                 <p class="text-brand-grayText text-sm sm:text-base max-w-xl leading-relaxed">
-                    Pelajari mekanisme kernel monolitik, ekosistem GNU, hierarki berkas POSIX, hingga eksekusi perintah Bash langsung melalui peramban tanpa instalasi mesin virtual.
+                    Memahami bagaimana baris perintah berinteraksi langsung dengan perangkat keras. Pelajari struktur kernel monolitik, ekosistem GNU, manajemen berkas POSIX, hingga praktik Bash langsung di peramban.
                 </p>
 
-                <!-- Asymmetrical Action Row: Primary Block + Editorial Text Link -->
-                <div class="flex flex-col sm:flex-row sm:items-center gap-5 pt-2">
-                    <a href="apa-itu-linux.html" class="px-6 py-3.5 rounded-sm bg-brand-amber text-white font-mono font-bold hover:bg-brand-ink transition-colors duration-200 inline-flex items-center justify-center gap-3 text-xs tracking-wide uppercase">
+                <!-- Asymmetrical Action Row -->
+                <div class="flex flex-col sm:flex-row sm:items-center gap-6 pt-1">
+                    <a href="apa-itu-linux.html" class="px-6 py-3.5 rounded-sm bg-brand-amber text-white font-mono font-bold hover:bg-brand-ink transition-all duration-300 inline-flex items-center justify-center gap-3 text-xs tracking-wide uppercase">
                         <span>Mulai Modul 01: Anatomi Kernel</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <span aria-hidden="true">→</span>
                     </a>
-                    <a href="perintah-dasar.html" class="inline-flex items-center gap-2 text-brand-ink font-mono text-xs font-semibold hover:text-brand-amber transition-colors duration-200 group py-2">
-                        <i class="fa-solid fa-terminal text-brand-amber"></i>
+                    <a href="perintah-dasar.html" class="inline-flex items-center gap-2 text-brand-ink font-mono text-xs font-semibold hover:text-brand-amber transition-colors group py-2">
+                        <span class="text-brand-amber font-bold">$</span>
                         <span class="border-b border-brand-ink group-hover:border-brand-amber pb-0.5">Buka Sandbox CLI Langsung</span>
                     </a>
                 </div>
 
-                <!-- Architectural Facts Strip -->
-                <div class="pt-8 border-t border-brand-border grid grid-cols-3 gap-6 text-xs font-mono">
+                <!-- Borderless Metrics Strip -->
+                <div class="pt-10 border-t border-brand-border grid grid-cols-3 gap-8 text-xs font-mono">
                     <div>
-                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1">CLOUD INFRASTRUCTURE</span>
-                        <span class="text-brand-ink font-bold text-base font-serif">96.3% Server</span>
+                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1.5">CLOUD INFRASTRUCTURE</span>
+                        <span class="text-brand-ink font-bold text-lg font-serif">96.3% Server</span>
                     </div>
                     <div>
-                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1">TOP 500 SUPERCOMPUTER</span>
-                        <span class="text-brand-ink font-bold text-base font-serif">100% Linux</span>
+                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1.5">TOP 500 SUPERCOMPUTER</span>
+                        <span class="text-brand-ink font-bold text-lg font-serif">100% Linux</span>
                     </div>
                     <div>
-                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1">KERNEL BASELINE</span>
-                        <span class="text-brand-ink font-bold text-base font-serif">POSIX / GNU</span>
+                        <span class="text-brand-muted block text-[10px] tracking-wider mb-1.5">KERNEL BASELINE</span>
+                        <span class="text-brand-ink font-bold text-lg font-serif">POSIX / GNU</span>
                     </div>
                 </div>
             </div>
@@ -182,136 +182,141 @@
         </div>
     </section>
 
-    <!-- ROADMAP ALUR BELAJAR (Asymmetrical Bento Grid) -->
-    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full border-t border-brand-border">
+    <!-- BORDERLESS EDITORIAL MANIFESTO (Breaking the Card-Grid Monotony) -->
+    <section class="py-20 bg-brand-surface border-y border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <div class="lg:col-span-4 space-y-2">
+                    <span class="font-mono text-xs text-brand-amber font-bold uppercase tracking-widest">FILOSOFI BELAJAR</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-serif text-brand-ink leading-snug">
+                        Mengapa Memahami Lapisan Bawah Itu Penting?
+                    </h2>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8 text-sm text-brand-grayText leading-relaxed">
+                    <p>
+                        Sebagian besar tutorial hanya menyuruh Anda menyalin-tempel perintah <code class="text-brand-ink font-mono text-xs bg-brand-card px-1.5 py-0.5 border border-brand-border">sudo apt install</code> tanpa menjelaskan apa yang terjadi di balik layar. Ketika muncul galat hak akses atau dependensi rusak, pengguna pun kebingungan.
+                    </p>
+                    <p>
+                        Kurikulum ini membalik urutan tersebut. Anda mulai dengan melihat bagaimana kernel membatasi memori aplikasi, mengapa sistem berkas berakar pada <code class="text-brand-ink font-mono text-xs bg-brand-card px-1.5 py-0.5 border border-brand-border">/</code>, lalu membiasakan jemari Anda di terminal sebelum menyentuh instalasi fisik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP ALUR BELAJAR (Editorial Index List + Highlight Sandbox) -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             <div class="lg:col-span-7">
-                <span class="text-brand-amber font-mono text-xs font-semibold uppercase tracking-widest">STRUKTUR KURIKULUM</span>
+                <span class="text-brand-amber font-mono text-xs font-semibold uppercase tracking-widest">INDEKS MATERI</span>
                 <h2 class="text-3xl sm:text-4xl font-bold font-serif text-brand-ink mt-2 tracking-tight">Lima Tahap Penguasaan Sistem</h2>
             </div>
             <p class="lg:col-span-5 text-brand-grayText text-xs sm:text-sm leading-relaxed">
-                Materi disusun berurutan dari tingkat perangkat keras paling dasar menuju administrasi baris perintah dan instalasi sistem fisik.
+                Disusun berurutan dari tingkat perangkat keras paling dasar menuju administrasi baris perintah dan instalasi sistem fisik.
             </p>
         </div>
 
-        <!-- Asymmetrical Bento Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- Clean Editorial Index Rows (No Boxy Card Grid) -->
+        <div class="divide-y divide-brand-border border-y border-brand-border">
             
-            <!-- Modul 1 (Span 7) -->
-            <div class="md:col-span-7 p-8 bg-brand-card border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 01</span>
-                        <span id="badge-modul-1" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
-                    </div>
-                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Apa Itu Linux?</h3>
-                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-xl">
-                        Pemisahan tanggung jawab antara Kernel Linux buatan Linus Torvalds dan utilitas GNU. Dilengkapi diagram interaktif 4-lapis komunikasi perangkat keras hingga User Space.
-                    </p>
+            <!-- Modul 01 -->
+            <a href="apa-itu-linux.html" class="py-7 px-2 hover:bg-brand-surface/60 transition-colors duration-200 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group block">
+                <div class="lg:col-span-2 flex items-center gap-3 font-mono text-xs">
+                    <span class="font-bold text-brand-amber">01</span>
+                    <span id="badge-modul-1" class="text-[10px] text-brand-muted px-2 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                 </div>
-                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-brand-muted">Arsitektur &amp; Kernel</span>
-                    <a href="apa-itu-linux.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
-                        Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
+                <div class="lg:col-span-4">
+                    <h3 class="text-xl sm:text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber group-hover:translate-x-1 transition-all duration-200">Apa Itu Linux?</h3>
                 </div>
-            </div>
+                <div class="lg:col-span-4 text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                    Pemisahan tanggung jawab Kernel Linux dengan utilitas GNU serta diagram interaktif 4-lapis komunikasi perangkat keras.
+                </div>
+                <div class="lg:col-span-2 flex lg:justify-end font-mono text-xs font-bold text-brand-ink group-hover:text-brand-amber">
+                    <span>Baca Modul →</span>
+                </div>
+            </a>
 
-            <!-- Modul 2 (Span 5) -->
-            <div class="md:col-span-5 p-8 bg-brand-surface border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 02</span>
-                        <span id="badge-modul-2" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-card border border-brand-border">BELUM MULAI</span>
-                    </div>
-                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Kelebihan &amp; Kekurangan</h3>
-                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
-                        Evaluasi teknis efisiensi memori, isolasi hak akses POSIX, serta kompromi kompatibilitas perangkat lunak komersial dan solusi alternatifnya.
-                    </p>
+            <!-- Modul 02 -->
+            <a href="kelebihan-kekurangan.html" class="py-7 px-2 hover:bg-brand-surface/60 transition-colors duration-200 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group block">
+                <div class="lg:col-span-2 flex items-center gap-3 font-mono text-xs">
+                    <span class="font-bold text-brand-amber">02</span>
+                    <span id="badge-modul-2" class="text-[10px] text-brand-muted px-2 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                 </div>
-                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-brand-muted">Evaluasi Teknis</span>
-                    <a href="kelebihan-kekurangan.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
-                        Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
+                <div class="lg:col-span-4">
+                    <h3 class="text-xl sm:text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber group-hover:translate-x-1 transition-all duration-200">Kelebihan &amp; Kekurangan</h3>
                 </div>
-            </div>
+                <div class="lg:col-span-4 text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                    Evaluasi efisiensi memori, isolasi POSIX, serta kompromi kompatibilitas aplikasi komersial dan jalan keluarnya.
+                </div>
+                <div class="lg:col-span-2 flex lg:justify-end font-mono text-xs font-bold text-brand-ink group-hover:text-brand-amber">
+                    <span>Baca Modul →</span>
+                </div>
+            </a>
 
-            <!-- Modul 3 (Span 5) -->
-            <div class="md:col-span-5 p-8 bg-brand-surface border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 03</span>
-                        <span id="badge-modul-3" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-card border border-brand-border">BELUM MULAI</span>
-                    </div>
-                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Katalog Distro Linux</h3>
-                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
-                        Klasifikasi garis keturunan Debian, Red Hat, dan Arch beserta perbedaan manajer paket (<code class="text-brand-amber font-mono">apt</code>, <code class="text-brand-amber font-mono">dnf</code>, <code class="text-brand-amber font-mono">pacman</code>).
-                    </p>
+            <!-- Modul 03 -->
+            <a href="distro-linux.html" class="py-7 px-2 hover:bg-brand-surface/60 transition-colors duration-200 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group block">
+                <div class="lg:col-span-2 flex items-center gap-3 font-mono text-xs">
+                    <span class="font-bold text-brand-amber">03</span>
+                    <span id="badge-modul-3" class="text-[10px] text-brand-muted px-2 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                 </div>
-                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-brand-muted">Silsilah Distribusi</span>
-                    <a href="distro-linux.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
-                        Buka Modul <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
+                <div class="lg:col-span-4">
+                    <h3 class="text-xl sm:text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber group-hover:translate-x-1 transition-all duration-200">Katalog Distro Linux</h3>
                 </div>
-            </div>
+                <div class="lg:col-span-4 text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                    Silsilah keluarga Debian, Red Hat, dan Arch beserta perbedaan manajer paket (<code class="text-brand-amber font-mono">apt</code>, <code class="text-brand-amber font-mono">dnf</code>, <code class="text-brand-amber font-mono">pacman</code>).
+                </div>
+                <div class="lg:col-span-2 flex lg:justify-end font-mono text-xs font-bold text-brand-ink group-hover:text-brand-amber">
+                    <span>Eksplorasi →</span>
+                </div>
+            </a>
 
-            <!-- Modul 4 (Span 7) -->
-            <div class="md:col-span-7 p-8 bg-brand-card border border-brand-border hover:border-brand-amber transition-colors duration-200 flex flex-col justify-between group">
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 04</span>
-                        <span id="badge-modul-4" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
-                    </div>
-                    <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Perintah Dasar &amp; Terminal Sandbox</h3>
-                    <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed max-w-xl">
-                        Simulasi langsung 14 perintah wajib manajemen berkas dan direktori (<code class="text-brand-amber font-mono">pwd, ls, cd, mkdir, touch, cat, rm</code>) melalui 5 misi praktik terpandu.
-                    </p>
+            <!-- Modul 04 -->
+            <a href="perintah-dasar.html" class="py-7 px-2 hover:bg-brand-surface/60 transition-colors duration-200 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group block">
+                <div class="lg:col-span-2 flex items-center gap-3 font-mono text-xs">
+                    <span class="font-bold text-brand-amber">04</span>
+                    <span id="badge-modul-4" class="text-[10px] text-brand-muted px-2 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                 </div>
-                <div class="pt-8 mt-6 border-t border-brand-border/60 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-brand-muted">Praktik Shell POSIX</span>
-                    <a href="perintah-dasar.html" class="text-xs font-mono text-brand-ink group-hover:text-brand-amber flex items-center gap-2 font-bold transition-colors duration-200">
-                        Buka Terminal <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </a>
+                <div class="lg:col-span-4">
+                    <h3 class="text-xl sm:text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber group-hover:translate-x-1 transition-all duration-200">Perintah Dasar &amp; Sandbox</h3>
                 </div>
-            </div>
+                <div class="lg:col-span-4 text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                    Simulasi langsung 14 perintah wajib manajemen berkas (<code class="text-brand-amber font-mono">pwd, ls, cd, mkdir, touch, cat, rm</code>) melalui 5 misi praktik.
+                </div>
+                <div class="lg:col-span-2 flex lg:justify-end font-mono text-xs font-bold text-brand-amber">
+                    <span>Buka Terminal →</span>
+                </div>
+            </a>
 
-            <!-- Modul 5 (Full Span 12 with internal 8/4 split) -->
-            <div class="md:col-span-12 p-8 bg-brand-card border-l-4 border-l-brand-amber border-y border-r border-brand-border hover:border-brand-amber transition-colors duration-200 group">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                    <div class="lg:col-span-8 space-y-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xs font-mono font-bold text-brand-amber tracking-wider">MODUL 05</span>
-                            <span id="badge-modul-5" class="text-[10px] font-mono text-brand-muted px-2.5 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
-                        </div>
-                        <h3 class="text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber transition-colors duration-200">Penutup, Setup Instalasi &amp; Sertifikat Kelulusan</h3>
-                        <p class="text-xs sm:text-sm text-brand-grayText leading-relaxed">
-                            Panduan teknis 3 jalur instalasi pada mesin fisik (VirtualBox, WSL 2, dan Dual Boot) serta generator sertifikat format SVG beresolusi tinggi.
-                        </p>
-                    </div>
-                    <div class="lg:col-span-4 flex lg:justify-end">
-                        <a href="penutup.html" class="px-5 py-3 rounded-sm bg-brand-surface border border-brand-border group-hover:bg-brand-amber group-hover:text-white group-hover:border-brand-amber text-xs font-mono text-brand-ink flex items-center gap-2 font-bold transition-colors duration-200">
-                            <span>Akses Modul Penutup</span>
-                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
+            <!-- Modul 05 -->
+            <a href="penutup.html" class="py-7 px-2 hover:bg-brand-surface/60 transition-colors duration-200 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group block">
+                <div class="lg:col-span-2 flex items-center gap-3 font-mono text-xs">
+                    <span class="font-bold text-brand-amber">05</span>
+                    <span id="badge-modul-5" class="text-[10px] text-brand-muted px-2 py-0.5 bg-brand-surface border border-brand-border">BELUM MULAI</span>
                 </div>
-            </div>
+                <div class="lg:col-span-4">
+                    <h3 class="text-xl sm:text-2xl font-bold font-serif text-brand-ink group-hover:text-brand-amber group-hover:translate-x-1 transition-all duration-200">Instalasi Fisik &amp; Sertifikat</h3>
+                </div>
+                <div class="lg:col-span-4 text-xs sm:text-sm text-brand-grayText leading-relaxed">
+                    Panduan teknis VirtualBox, WSL 2, dan Dual Boot serta generator sertifikat kelulusan berformat vektor SVG.
+                </div>
+                <div class="lg:col-span-2 flex lg:justify-end font-mono text-xs font-bold text-brand-ink group-hover:text-brand-amber">
+                    <span>Akses Penutup →</span>
+                </div>
+            </a>
 
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-brand-surface border-t border-brand-border py-10 text-xs text-brand-grayText font-mono mt-16">
+    <footer class="bg-brand-surface border-t border-brand-border py-10 text-xs text-brand-grayText font-mono mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <div>LINUX.EDU &copy; 2026 — Dokumentasi &amp; Kurikulum Sistem Operasi Terbuka.</div>
             <div class="flex items-center gap-5">
-                <a href="apa-itu-linux.html" class="hover:text-brand-amber transition-colors duration-200">Modul 01</a>
+                <a href="apa-itu-linux.html" class="hover:text-brand-amber transition-colors">Modul 01</a>
                 <span>/</span>
-                <a href="perintah-dasar.html" class="hover:text-brand-amber transition-colors duration-200">Sandbox CLI</a>
+                <a href="perintah-dasar.html" class="hover:text-brand-amber transition-colors">Sandbox CLI</a>
                 <span>/</span>
-                <a href="penutup.html" class="hover:text-brand-amber transition-colors duration-200">Sertifikat</a>
+                <a href="penutup.html" class="hover:text-brand-amber transition-colors">Sertifikat</a>
             </div>
         </div>
     </footer>
